@@ -15,18 +15,38 @@ require 'date'
 module CloudmersiveValidateApiClient
   # Full email addresss validation result
   class FullEmailValidationResponse
-    # True if the email address is valid, false otherwise
+    # True if the email address is valid overall, false otherwise
     attr_accessor :valid_address
 
     # Email server connected to for verification
     attr_accessor :mail_server_used_for_validation
+
+    # True if the syntax of the email address is valid, false otherwise.  This is one component of ValidAddress, but not the only one.
+    attr_accessor :valid_syntax
+
+    # True if the domain name of the email address is valid, false otherwise.  This is one component of ValidAddress, but not the only one.
+    attr_accessor :valid_domain
+
+    # True if the email address was verified by the remote server, false otherwise.  This is one component of ValidAddress, but not the only one.
+    attr_accessor :valid_smtp
+
+    # True if the domain is a catch-all domain name, false otherwise.  Catch-all domain names, while rare, always accept inbound email to ensure they do not lose any potentially useful emails.  Catch-all domain names can occassionally be configured to first accept and store all inbound email, but then later send a bounce email back to the sender after a delayed period of time.
+    attr_accessor :is_catchall_domain
+
+    # Domain name of the email address
+    attr_accessor :domain
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'valid_address' => :'ValidAddress',
-        :'mail_server_used_for_validation' => :'MailServerUsedForValidation'
+        :'mail_server_used_for_validation' => :'MailServerUsedForValidation',
+        :'valid_syntax' => :'Valid_Syntax',
+        :'valid_domain' => :'Valid_Domain',
+        :'valid_smtp' => :'Valid_SMTP',
+        :'is_catchall_domain' => :'IsCatchallDomain',
+        :'domain' => :'Domain'
       }
     end
 
@@ -34,7 +54,12 @@ module CloudmersiveValidateApiClient
     def self.swagger_types
       {
         :'valid_address' => :'BOOLEAN',
-        :'mail_server_used_for_validation' => :'String'
+        :'mail_server_used_for_validation' => :'String',
+        :'valid_syntax' => :'BOOLEAN',
+        :'valid_domain' => :'BOOLEAN',
+        :'valid_smtp' => :'BOOLEAN',
+        :'is_catchall_domain' => :'BOOLEAN',
+        :'domain' => :'String'
       }
     end
 
@@ -52,6 +77,26 @@ module CloudmersiveValidateApiClient
 
       if attributes.has_key?(:'MailServerUsedForValidation')
         self.mail_server_used_for_validation = attributes[:'MailServerUsedForValidation']
+      end
+
+      if attributes.has_key?(:'Valid_Syntax')
+        self.valid_syntax = attributes[:'Valid_Syntax']
+      end
+
+      if attributes.has_key?(:'Valid_Domain')
+        self.valid_domain = attributes[:'Valid_Domain']
+      end
+
+      if attributes.has_key?(:'Valid_SMTP')
+        self.valid_smtp = attributes[:'Valid_SMTP']
+      end
+
+      if attributes.has_key?(:'IsCatchallDomain')
+        self.is_catchall_domain = attributes[:'IsCatchallDomain']
+      end
+
+      if attributes.has_key?(:'Domain')
+        self.domain = attributes[:'Domain']
       end
 
     end
@@ -75,7 +120,12 @@ module CloudmersiveValidateApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           valid_address == o.valid_address &&
-          mail_server_used_for_validation == o.mail_server_used_for_validation
+          mail_server_used_for_validation == o.mail_server_used_for_validation &&
+          valid_syntax == o.valid_syntax &&
+          valid_domain == o.valid_domain &&
+          valid_smtp == o.valid_smtp &&
+          is_catchall_domain == o.is_catchall_domain &&
+          domain == o.domain
     end
 
     # @see the `==` method
@@ -87,7 +137,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_address, mail_server_used_for_validation].hash
+      [valid_address, mail_server_used_for_validation, valid_syntax, valid_domain, valid_smtp, is_catchall_domain, domain].hash
     end
 
     # Builds the object from hash
