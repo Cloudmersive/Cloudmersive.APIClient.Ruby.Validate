@@ -36,6 +36,12 @@ module CloudmersiveValidateApiClient
     # Domain name of the email address
     attr_accessor :domain
 
+    # True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
+    attr_accessor :is_free_email_provider
+
+    # True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
+    attr_accessor :is_disposable
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -46,7 +52,9 @@ module CloudmersiveValidateApiClient
         :'valid_domain' => :'Valid_Domain',
         :'valid_smtp' => :'Valid_SMTP',
         :'is_catchall_domain' => :'IsCatchallDomain',
-        :'domain' => :'Domain'
+        :'domain' => :'Domain',
+        :'is_free_email_provider' => :'IsFreeEmailProvider',
+        :'is_disposable' => :'IsDisposable'
       }
     end
 
@@ -59,7 +67,9 @@ module CloudmersiveValidateApiClient
         :'valid_domain' => :'BOOLEAN',
         :'valid_smtp' => :'BOOLEAN',
         :'is_catchall_domain' => :'BOOLEAN',
-        :'domain' => :'String'
+        :'domain' => :'String',
+        :'is_free_email_provider' => :'BOOLEAN',
+        :'is_disposable' => :'BOOLEAN'
       }
     end
 
@@ -99,6 +109,14 @@ module CloudmersiveValidateApiClient
         self.domain = attributes[:'Domain']
       end
 
+      if attributes.has_key?(:'IsFreeEmailProvider')
+        self.is_free_email_provider = attributes[:'IsFreeEmailProvider']
+      end
+
+      if attributes.has_key?(:'IsDisposable')
+        self.is_disposable = attributes[:'IsDisposable']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -125,7 +143,9 @@ module CloudmersiveValidateApiClient
           valid_domain == o.valid_domain &&
           valid_smtp == o.valid_smtp &&
           is_catchall_domain == o.is_catchall_domain &&
-          domain == o.domain
+          domain == o.domain &&
+          is_free_email_provider == o.is_free_email_provider &&
+          is_disposable == o.is_disposable
     end
 
     # @see the `==` method
@@ -137,7 +157,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_address, mail_server_used_for_validation, valid_syntax, valid_domain, valid_smtp, is_catchall_domain, domain].hash
+      [valid_address, mail_server_used_for_validation, valid_syntax, valid_domain, valid_smtp, is_catchall_domain, domain, is_free_email_provider, is_disposable].hash
     end
 
     # Builds the object from hash
