@@ -11,5 +11,5 @@ Swagger Codegen version: unset
 =end
 
 module CloudmersiveValidateApiClient
-  VERSION = "1.3.3"
+  VERSION = "1.3.4"
 end
