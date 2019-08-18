@@ -129,5 +129,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+
+    # Validate a URL syntactically
+    # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateUrlResponseSyntaxOnly]
+    def domain_url_syntax_only(request, opts = {})
+      data, _status_code, _headers = domain_url_syntax_only_with_http_info(request, opts)
+      return data
+    end
+
+    # Validate a URL syntactically
+    # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateUrlResponseSyntaxOnly, Fixnum, Hash)>] ValidateUrlResponseSyntaxOnly data, response status code and response headers
+    def domain_url_syntax_only_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: DomainApi.domain_url_syntax_only ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling DomainApi.domain_url_syntax_only"
+      end
+      # resource path
+      local_var_path = "/validate/domain/url/syntax-only"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateUrlResponseSyntaxOnly')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_url_syntax_only\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

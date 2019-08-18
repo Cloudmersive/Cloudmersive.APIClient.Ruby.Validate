@@ -56,4 +56,16 @@ describe 'DomainApi' do
     end
   end
 
+  # unit tests for domain_url_syntax_only
+  # Validate a URL syntactically
+  # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateUrlResponseSyntaxOnly]
+  describe 'domain_url_syntax_only test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
