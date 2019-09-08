@@ -13,10 +13,19 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
+  # Result of validating a URL with full validation
+  class ValidateUrlResponseFull
+    # True if the URL has valid syntax, a valid domain, a valid endpoint, and passes virus scan checks; false otherwise
     attr_accessor :valid_url
+
+    # True if the URL has valid syntax, false otherwise
+    attr_accessor :valid_syntax
+
+    # True if the domain name is valid and exists, false otherwise
+    attr_accessor :valid_domain
+
+    # True if the endpoint is up and responsive and passes a virus scan check, false otherwise
+    attr_accessor :valid_endpoint
 
     # Well-formed version of the URL
     attr_accessor :well_formed_url
@@ -26,6 +35,9 @@ module CloudmersiveValidateApiClient
     def self.attribute_map
       {
         :'valid_url' => :'ValidURL',
+        :'valid_syntax' => :'Valid_Syntax',
+        :'valid_domain' => :'Valid_Domain',
+        :'valid_endpoint' => :'Valid_Endpoint',
         :'well_formed_url' => :'WellFormedURL'
       }
     end
@@ -34,6 +46,9 @@ module CloudmersiveValidateApiClient
     def self.swagger_types
       {
         :'valid_url' => :'BOOLEAN',
+        :'valid_syntax' => :'BOOLEAN',
+        :'valid_domain' => :'BOOLEAN',
+        :'valid_endpoint' => :'BOOLEAN',
         :'well_formed_url' => :'String'
       }
     end
@@ -48,6 +63,18 @@ module CloudmersiveValidateApiClient
 
       if attributes.has_key?(:'ValidURL')
         self.valid_url = attributes[:'ValidURL']
+      end
+
+      if attributes.has_key?(:'Valid_Syntax')
+        self.valid_syntax = attributes[:'Valid_Syntax']
+      end
+
+      if attributes.has_key?(:'Valid_Domain')
+        self.valid_domain = attributes[:'Valid_Domain']
+      end
+
+      if attributes.has_key?(:'Valid_Endpoint')
+        self.valid_endpoint = attributes[:'Valid_Endpoint']
       end
 
       if attributes.has_key?(:'WellFormedURL')
@@ -75,6 +102,9 @@ module CloudmersiveValidateApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           valid_url == o.valid_url &&
+          valid_syntax == o.valid_syntax &&
+          valid_domain == o.valid_domain &&
+          valid_endpoint == o.valid_endpoint &&
           well_formed_url == o.well_formed_url
     end
 
@@ -87,7 +117,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url].hash
+      [valid_url, valid_syntax, valid_domain, valid_endpoint, well_formed_url].hash
     end
 
     # Builds the object from hash

@@ -13,28 +13,23 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
-    attr_accessor :valid_url
-
-    # Well-formed version of the URL
-    attr_accessor :well_formed_url
+  # User-Agent parse and validation request
+  class UserAgentValidateRequest
+    # The user agent string you wish to parse and validate
+    attr_accessor :user_agent_string
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_url' => :'ValidURL',
-        :'well_formed_url' => :'WellFormedURL'
+        :'user_agent_string' => :'UserAgentString'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_url' => :'BOOLEAN',
-        :'well_formed_url' => :'String'
+        :'user_agent_string' => :'String'
       }
     end
 
@@ -46,12 +41,8 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ValidURL')
-        self.valid_url = attributes[:'ValidURL']
-      end
-
-      if attributes.has_key?(:'WellFormedURL')
-        self.well_formed_url = attributes[:'WellFormedURL']
+      if attributes.has_key?(:'UserAgentString')
+        self.user_agent_string = attributes[:'UserAgentString']
       end
 
     end
@@ -74,8 +65,7 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_url == o.valid_url &&
-          well_formed_url == o.well_formed_url
+          user_agent_string == o.user_agent_string
     end
 
     # @see the `==` method
@@ -87,7 +77,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url].hash
+      [user_agent_string].hash
     end
 
     # Builds the object from hash
