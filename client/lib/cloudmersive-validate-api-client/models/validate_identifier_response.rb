@@ -13,28 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
-    attr_accessor :valid_url
+  # Result of performing an identifier validation operation
+  class ValidateIdentifierResponse
+    # True if the input identifier is valid, false otherwise
+    attr_accessor :valid_identifier
 
-    # Well-formed version of the URL
-    attr_accessor :well_formed_url
+    # Resulting error from the identifier validation; possible errors are: \"InputIsEmpty\", \"ContainsWhitespace\", \"ContainsNumbers\", \"ContainsHyphen\", \"ContainsUnderscore\", \"ContainsPeriod\", \"TooShort\", \"TooLong\", \"ContainsSpecialCharacters\"
+    attr_accessor :error
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_url' => :'ValidURL',
-        :'well_formed_url' => :'WellFormedURL'
+        :'valid_identifier' => :'ValidIdentifier',
+        :'error' => :'Error'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_url' => :'BOOLEAN',
-        :'well_formed_url' => :'String'
+        :'valid_identifier' => :'BOOLEAN',
+        :'error' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ValidURL')
-        self.valid_url = attributes[:'ValidURL']
+      if attributes.has_key?(:'ValidIdentifier')
+        self.valid_identifier = attributes[:'ValidIdentifier']
       end
 
-      if attributes.has_key?(:'WellFormedURL')
-        self.well_formed_url = attributes[:'WellFormedURL']
+      if attributes.has_key?(:'Error')
+        self.error = attributes[:'Error']
       end
 
     end
@@ -74,8 +74,8 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_url == o.valid_url &&
-          well_formed_url == o.well_formed_url
+          valid_identifier == o.valid_identifier &&
+          error == o.error
     end
 
     # @see the `==` method
@@ -87,7 +87,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url].hash
+      [valid_identifier, error].hash
     end
 
     # Builds the object from hash

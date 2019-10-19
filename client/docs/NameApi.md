@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**name_get_gender**](NameApi.md#name_get_gender) | **POST** /validate/name/get-gender | Get the gender of a first name
+[**name_identifier**](NameApi.md#name_identifier) | **POST** /validate/name/identifier | Validate a code identifier
 [**name_validate_first_name**](NameApi.md#name_validate_first_name) | **POST** /validate/name/first | Validate a first name
 [**name_validate_full_name**](NameApi.md#name_validate_full_name) | **POST** /validate/name/full-name | Parse and validate a full name
 [**name_validate_last_name**](NameApi.md#name_validate_last_name) | **POST** /validate/name/last | Validate a last name
@@ -52,6 +53,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetGenderResponse**](GetGenderResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **name_identifier**
+> ValidateIdentifierResponse name_identifier(input)
+
+Validate a code identifier
+
+Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be \"helloWorld\" but not \"hello*World\".
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::NameApi.new
+
+input = CloudmersiveValidateApiClient::ValidateIdentifierRequest.new # ValidateIdentifierRequest | Identifier validation request information
+
+
+begin
+  #Validate a code identifier
+  result = api_instance.name_identifier(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling NameApi->name_identifier: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateIdentifierRequest**](ValidateIdentifierRequest.md)| Identifier validation request information | 
+
+### Return type
+
+[**ValidateIdentifierResponse**](ValidateIdentifierResponse.md)
 
 ### Authorization
 

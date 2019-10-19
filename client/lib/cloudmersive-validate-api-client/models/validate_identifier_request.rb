@@ -13,28 +13,58 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
-    attr_accessor :valid_url
+  # Identifier validation request, including the input identifier as well as various identifier rules
+  class ValidateIdentifierRequest
+    # Text string identifier input
+    attr_accessor :input
 
-    # Well-formed version of the URL
-    attr_accessor :well_formed_url
+    # True if whitespace is allowed in the identifier, false otherwise
+    attr_accessor :allow_whitespace
+
+    # True if hyphens are allowd in the identifier, false otherwise
+    attr_accessor :allow_hyphens
+
+    # True if underscores are allowed in the identifier, false otherwise
+    attr_accessor :allow_underscore
+
+    # True if numbers are allowed in the identifier, false otherwise
+    attr_accessor :allow_numbers
+
+    # True if periods are allowed in the identifier, false otherwise
+    attr_accessor :allow_periods
+
+    # Optional; maximum length, if any, of the identifier
+    attr_accessor :max_length
+
+    # Optional; minimum length, if any, of the identifier
+    attr_accessor :min_length
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_url' => :'ValidURL',
-        :'well_formed_url' => :'WellFormedURL'
+        :'input' => :'Input',
+        :'allow_whitespace' => :'AllowWhitespace',
+        :'allow_hyphens' => :'AllowHyphens',
+        :'allow_underscore' => :'AllowUnderscore',
+        :'allow_numbers' => :'AllowNumbers',
+        :'allow_periods' => :'AllowPeriods',
+        :'max_length' => :'MaxLength',
+        :'min_length' => :'MinLength'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_url' => :'BOOLEAN',
-        :'well_formed_url' => :'String'
+        :'input' => :'String',
+        :'allow_whitespace' => :'BOOLEAN',
+        :'allow_hyphens' => :'BOOLEAN',
+        :'allow_underscore' => :'BOOLEAN',
+        :'allow_numbers' => :'BOOLEAN',
+        :'allow_periods' => :'BOOLEAN',
+        :'max_length' => :'Integer',
+        :'min_length' => :'Integer'
       }
     end
 
@@ -46,12 +76,36 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ValidURL')
-        self.valid_url = attributes[:'ValidURL']
+      if attributes.has_key?(:'Input')
+        self.input = attributes[:'Input']
       end
 
-      if attributes.has_key?(:'WellFormedURL')
-        self.well_formed_url = attributes[:'WellFormedURL']
+      if attributes.has_key?(:'AllowWhitespace')
+        self.allow_whitespace = attributes[:'AllowWhitespace']
+      end
+
+      if attributes.has_key?(:'AllowHyphens')
+        self.allow_hyphens = attributes[:'AllowHyphens']
+      end
+
+      if attributes.has_key?(:'AllowUnderscore')
+        self.allow_underscore = attributes[:'AllowUnderscore']
+      end
+
+      if attributes.has_key?(:'AllowNumbers')
+        self.allow_numbers = attributes[:'AllowNumbers']
+      end
+
+      if attributes.has_key?(:'AllowPeriods')
+        self.allow_periods = attributes[:'AllowPeriods']
+      end
+
+      if attributes.has_key?(:'MaxLength')
+        self.max_length = attributes[:'MaxLength']
+      end
+
+      if attributes.has_key?(:'MinLength')
+        self.min_length = attributes[:'MinLength']
       end
 
     end
@@ -74,8 +128,14 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_url == o.valid_url &&
-          well_formed_url == o.well_formed_url
+          input == o.input &&
+          allow_whitespace == o.allow_whitespace &&
+          allow_hyphens == o.allow_hyphens &&
+          allow_underscore == o.allow_underscore &&
+          allow_numbers == o.allow_numbers &&
+          allow_periods == o.allow_periods &&
+          max_length == o.max_length &&
+          min_length == o.min_length
     end
 
     # @see the `==` method
@@ -87,7 +147,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url].hash
+      [input, allow_whitespace, allow_hyphens, allow_underscore, allow_numbers, allow_periods, max_length, min_length].hash
     end
 
     # Builds the object from hash

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **BOOLEAN** |  | [optional] 
-**servers** | **Array&lt;String&gt;** |  | [optional] 
+**success** | **BOOLEAN** | True if partial address validation was successufl, false otherwise | [optional] 
+**servers** | **Array&lt;String&gt;** | Email servers for this email address | [optional] 
 
 
