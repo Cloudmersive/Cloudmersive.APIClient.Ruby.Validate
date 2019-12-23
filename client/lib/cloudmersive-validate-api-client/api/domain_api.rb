@@ -54,7 +54,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
 
       # form parameters
       form_params = {}
@@ -109,7 +109,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
 
       # form parameters
       form_params = {}
@@ -132,7 +132,7 @@ module CloudmersiveValidateApiClient
 
     # Validate a URL fully
     # Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-    # @param request 
+    # @param request Input URL request
     # @param [Hash] opts the optional parameters
     # @return [ValidateUrlResponseFull]
     def domain_url_full(request, opts = {})
@@ -142,7 +142,7 @@ module CloudmersiveValidateApiClient
 
     # Validate a URL fully
     # Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-    # @param request 
+    # @param request Input URL request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateUrlResponseFull, Fixnum, Hash)>] ValidateUrlResponseFull data, response status code and response headers
     def domain_url_full_with_http_info(request, opts = {})
@@ -164,7 +164,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
 
       # form parameters
       form_params = {}
@@ -187,7 +187,7 @@ module CloudmersiveValidateApiClient
 
     # Validate a URL syntactically
     # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-    # @param request 
+    # @param request Input URL information
     # @param [Hash] opts the optional parameters
     # @return [ValidateUrlResponseSyntaxOnly]
     def domain_url_syntax_only(request, opts = {})
@@ -197,7 +197,7 @@ module CloudmersiveValidateApiClient
 
     # Validate a URL syntactically
     # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-    # @param request 
+    # @param request Input URL information
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateUrlResponseSyntaxOnly, Fixnum, Hash)>] ValidateUrlResponseSyntaxOnly data, response status code and response headers
     def domain_url_syntax_only_with_http_info(request, opts = {})
@@ -219,7 +219,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
 
       # form parameters
       form_params = {}

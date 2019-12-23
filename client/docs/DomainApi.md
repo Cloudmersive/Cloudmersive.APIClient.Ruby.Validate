@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Content-Type**: text/javascript, application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Content-Type**: text/javascript, application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
@@ -139,7 +139,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::DomainApi.new
 
-request = CloudmersiveValidateApiClient::ValidateUrlRequestFull.new # ValidateUrlRequestFull | 
+request = CloudmersiveValidateApiClient::ValidateUrlRequestFull.new # ValidateUrlRequestFull | Input URL request
 
 
 begin
@@ -155,7 +155,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ValidateUrlRequestFull**](ValidateUrlRequestFull.md)|  | 
+ **request** | [**ValidateUrlRequestFull**](ValidateUrlRequestFull.md)| Input URL request | 
 
 ### Return type
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Content-Type**: application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
@@ -193,7 +193,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::DomainApi.new
 
-request = CloudmersiveValidateApiClient::ValidateUrlRequestSyntaxOnly.new # ValidateUrlRequestSyntaxOnly | 
+request = CloudmersiveValidateApiClient::ValidateUrlRequestSyntaxOnly.new # ValidateUrlRequestSyntaxOnly | Input URL information
 
 
 begin
@@ -209,7 +209,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)|  | 
+ **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)| Input URL information | 
 
 ### Return type
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Content-Type**: application/json, text/json
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 

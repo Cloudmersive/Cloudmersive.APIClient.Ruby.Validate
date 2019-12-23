@@ -13,38 +13,68 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Syntactic validity of email address
-  class AddressVerifySyntaxOnlyResponse
-    # True if the email address is syntactically valid, false if it is not
-    attr_accessor :valid_address
+  # Input lead contact; fill in known fields to extend them with matched field values
+  class LeadEnrichmentRequest
+    # The person's business email address for the lead
+    attr_accessor :contact_business_email
 
-    # Domain name of the email address
-    attr_accessor :domain
+    # Name of the company for the lead
+    attr_accessor :company_name
 
-    # True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
-    attr_accessor :is_free_email_provider
+    # Domain name / website for the lead
+    attr_accessor :company_domain_name
 
-    # True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
-    attr_accessor :is_disposable
+    # House number of the address of the company for the lead
+    attr_accessor :company_house_number
+
+    # Street name of the address of the company for the lead
+    attr_accessor :company_street
+
+    # City of the address of the company for the lead
+    attr_accessor :company_city
+
+    # State or Province of the address of the company for the lead
+    attr_accessor :company_state_or_province
+
+    # Postal Code of the address of the company for the lead
+    attr_accessor :company_postal_code
+
+    # Country of the address of the company for the lead
+    attr_accessor :company_country
+
+    # VAT number of the company for the lead
+    attr_accessor :company_vat_number
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_address' => :'ValidAddress',
-        :'domain' => :'Domain',
-        :'is_free_email_provider' => :'IsFreeEmailProvider',
-        :'is_disposable' => :'IsDisposable'
+        :'contact_business_email' => :'ContactBusinessEmail',
+        :'company_name' => :'CompanyName',
+        :'company_domain_name' => :'CompanyDomainName',
+        :'company_house_number' => :'CompanyHouseNumber',
+        :'company_street' => :'CompanyStreet',
+        :'company_city' => :'CompanyCity',
+        :'company_state_or_province' => :'CompanyStateOrProvince',
+        :'company_postal_code' => :'CompanyPostalCode',
+        :'company_country' => :'CompanyCountry',
+        :'company_vat_number' => :'CompanyVATNumber'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_address' => :'BOOLEAN',
-        :'domain' => :'String',
-        :'is_free_email_provider' => :'BOOLEAN',
-        :'is_disposable' => :'BOOLEAN'
+        :'contact_business_email' => :'String',
+        :'company_name' => :'String',
+        :'company_domain_name' => :'String',
+        :'company_house_number' => :'String',
+        :'company_street' => :'String',
+        :'company_city' => :'String',
+        :'company_state_or_province' => :'String',
+        :'company_postal_code' => :'String',
+        :'company_country' => :'String',
+        :'company_vat_number' => :'String'
       }
     end
 
@@ -56,20 +86,44 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ValidAddress')
-        self.valid_address = attributes[:'ValidAddress']
+      if attributes.has_key?(:'ContactBusinessEmail')
+        self.contact_business_email = attributes[:'ContactBusinessEmail']
       end
 
-      if attributes.has_key?(:'Domain')
-        self.domain = attributes[:'Domain']
+      if attributes.has_key?(:'CompanyName')
+        self.company_name = attributes[:'CompanyName']
       end
 
-      if attributes.has_key?(:'IsFreeEmailProvider')
-        self.is_free_email_provider = attributes[:'IsFreeEmailProvider']
+      if attributes.has_key?(:'CompanyDomainName')
+        self.company_domain_name = attributes[:'CompanyDomainName']
       end
 
-      if attributes.has_key?(:'IsDisposable')
-        self.is_disposable = attributes[:'IsDisposable']
+      if attributes.has_key?(:'CompanyHouseNumber')
+        self.company_house_number = attributes[:'CompanyHouseNumber']
+      end
+
+      if attributes.has_key?(:'CompanyStreet')
+        self.company_street = attributes[:'CompanyStreet']
+      end
+
+      if attributes.has_key?(:'CompanyCity')
+        self.company_city = attributes[:'CompanyCity']
+      end
+
+      if attributes.has_key?(:'CompanyStateOrProvince')
+        self.company_state_or_province = attributes[:'CompanyStateOrProvince']
+      end
+
+      if attributes.has_key?(:'CompanyPostalCode')
+        self.company_postal_code = attributes[:'CompanyPostalCode']
+      end
+
+      if attributes.has_key?(:'CompanyCountry')
+        self.company_country = attributes[:'CompanyCountry']
+      end
+
+      if attributes.has_key?(:'CompanyVATNumber')
+        self.company_vat_number = attributes[:'CompanyVATNumber']
       end
 
     end
@@ -92,10 +146,16 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_address == o.valid_address &&
-          domain == o.domain &&
-          is_free_email_provider == o.is_free_email_provider &&
-          is_disposable == o.is_disposable
+          contact_business_email == o.contact_business_email &&
+          company_name == o.company_name &&
+          company_domain_name == o.company_domain_name &&
+          company_house_number == o.company_house_number &&
+          company_street == o.company_street &&
+          company_city == o.company_city &&
+          company_state_or_province == o.company_state_or_province &&
+          company_postal_code == o.company_postal_code &&
+          company_country == o.company_country &&
+          company_vat_number == o.company_vat_number
     end
 
     # @see the `==` method
@@ -107,7 +167,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_address, domain, is_free_email_provider, is_disposable].hash
+      [contact_business_email, company_name, company_domain_name, company_house_number, company_street, company_city, company_state_or_province, company_postal_code, company_country, company_vat_number].hash
     end
 
     # Builds the object from hash

@@ -18,6 +18,39 @@ module CloudmersiveValidateApiClient
     # True if the domain is valid, false if it is not
     attr_accessor :valid_domain
 
+    # Name of the domain registrant
+    attr_accessor :registrant_name
+
+    # Organization name of the domain registrant
+    attr_accessor :registrant_organization
+
+    # Email address of the domain registrant
+    attr_accessor :registrant_email
+
+    # Street number of the address of the domain registrant, if available
+    attr_accessor :registrant_street_number
+
+    # Street name of the address of the domain registrant, if available
+    attr_accessor :registrant_street
+
+    # City of the domain registrant, if available
+    attr_accessor :registrant_city
+
+    # State or Province of the address of the domain registrant, if available
+    attr_accessor :registrant_state_or_province
+
+    # Postal code of the address of the domain registrant, if available
+    attr_accessor :registrant_postal_code
+
+    # Country of the address of the domain registrant, if available
+    attr_accessor :registrant_country
+
+    # Raw address string of the domain registrant, if available
+    attr_accessor :registrant_raw_address
+
+    # Telephone number of the address of the domain registrant
+    attr_accessor :registrant_telephone
+
     # Server used to lookup WHOIS information (may change based on lookup).
     attr_accessor :whois_server
 
@@ -32,6 +65,17 @@ module CloudmersiveValidateApiClient
     def self.attribute_map
       {
         :'valid_domain' => :'ValidDomain',
+        :'registrant_name' => :'RegistrantName',
+        :'registrant_organization' => :'RegistrantOrganization',
+        :'registrant_email' => :'RegistrantEmail',
+        :'registrant_street_number' => :'RegistrantStreetNumber',
+        :'registrant_street' => :'RegistrantStreet',
+        :'registrant_city' => :'RegistrantCity',
+        :'registrant_state_or_province' => :'RegistrantStateOrProvince',
+        :'registrant_postal_code' => :'RegistrantPostalCode',
+        :'registrant_country' => :'RegistrantCountry',
+        :'registrant_raw_address' => :'RegistrantRawAddress',
+        :'registrant_telephone' => :'RegistrantTelephone',
         :'whois_server' => :'WhoisServer',
         :'raw_text_record' => :'RawTextRecord',
         :'created_dt' => :'CreatedDt'
@@ -42,6 +86,17 @@ module CloudmersiveValidateApiClient
     def self.swagger_types
       {
         :'valid_domain' => :'BOOLEAN',
+        :'registrant_name' => :'String',
+        :'registrant_organization' => :'String',
+        :'registrant_email' => :'String',
+        :'registrant_street_number' => :'String',
+        :'registrant_street' => :'String',
+        :'registrant_city' => :'String',
+        :'registrant_state_or_province' => :'String',
+        :'registrant_postal_code' => :'String',
+        :'registrant_country' => :'String',
+        :'registrant_raw_address' => :'String',
+        :'registrant_telephone' => :'String',
         :'whois_server' => :'String',
         :'raw_text_record' => :'String',
         :'created_dt' => :'DateTime'
@@ -58,6 +113,50 @@ module CloudmersiveValidateApiClient
 
       if attributes.has_key?(:'ValidDomain')
         self.valid_domain = attributes[:'ValidDomain']
+      end
+
+      if attributes.has_key?(:'RegistrantName')
+        self.registrant_name = attributes[:'RegistrantName']
+      end
+
+      if attributes.has_key?(:'RegistrantOrganization')
+        self.registrant_organization = attributes[:'RegistrantOrganization']
+      end
+
+      if attributes.has_key?(:'RegistrantEmail')
+        self.registrant_email = attributes[:'RegistrantEmail']
+      end
+
+      if attributes.has_key?(:'RegistrantStreetNumber')
+        self.registrant_street_number = attributes[:'RegistrantStreetNumber']
+      end
+
+      if attributes.has_key?(:'RegistrantStreet')
+        self.registrant_street = attributes[:'RegistrantStreet']
+      end
+
+      if attributes.has_key?(:'RegistrantCity')
+        self.registrant_city = attributes[:'RegistrantCity']
+      end
+
+      if attributes.has_key?(:'RegistrantStateOrProvince')
+        self.registrant_state_or_province = attributes[:'RegistrantStateOrProvince']
+      end
+
+      if attributes.has_key?(:'RegistrantPostalCode')
+        self.registrant_postal_code = attributes[:'RegistrantPostalCode']
+      end
+
+      if attributes.has_key?(:'RegistrantCountry')
+        self.registrant_country = attributes[:'RegistrantCountry']
+      end
+
+      if attributes.has_key?(:'RegistrantRawAddress')
+        self.registrant_raw_address = attributes[:'RegistrantRawAddress']
+      end
+
+      if attributes.has_key?(:'RegistrantTelephone')
+        self.registrant_telephone = attributes[:'RegistrantTelephone']
       end
 
       if attributes.has_key?(:'WhoisServer')
@@ -93,6 +192,17 @@ module CloudmersiveValidateApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           valid_domain == o.valid_domain &&
+          registrant_name == o.registrant_name &&
+          registrant_organization == o.registrant_organization &&
+          registrant_email == o.registrant_email &&
+          registrant_street_number == o.registrant_street_number &&
+          registrant_street == o.registrant_street &&
+          registrant_city == o.registrant_city &&
+          registrant_state_or_province == o.registrant_state_or_province &&
+          registrant_postal_code == o.registrant_postal_code &&
+          registrant_country == o.registrant_country &&
+          registrant_raw_address == o.registrant_raw_address &&
+          registrant_telephone == o.registrant_telephone &&
           whois_server == o.whois_server &&
           raw_text_record == o.raw_text_record &&
           created_dt == o.created_dt
@@ -107,7 +217,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_domain, whois_server, raw_text_record, created_dt].hash
+      [valid_domain, registrant_name, registrant_organization, registrant_email, registrant_street_number, registrant_street, registrant_city, registrant_state_or_province, registrant_postal_code, registrant_country, registrant_raw_address, registrant_telephone, whois_server, raw_text_record, created_dt].hash
     end
 
     # Builds the object from hash

@@ -54,7 +54,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
 
       # form parameters
       form_params = {}
@@ -109,7 +109,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
 
       # form parameters
       form_params = {}
@@ -164,7 +164,7 @@ module CloudmersiveValidateApiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
 
       # form parameters
       form_params = {}

@@ -13,38 +13,38 @@ Swagger Codegen version: 2.3.1
 require "uri"
 
 module CloudmersiveValidateApiClient
-  class VatApi
+  class LeadEnrichmentApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
 
-    # Lookup a VAT code
-    # Checks if a VAT code is valid, and if it is, returns more information about it
-    # @param input Input VAT code
+    # Enrich an input lead with additional fields of data
+    # 
+    # @param request Input lead with known fields set, and unknown fields left blank (null)
     # @param [Hash] opts the optional parameters
-    # @return [VatLookupResponse]
-    def vat_vat_lookup(input, opts = {})
-      data, _status_code, _headers = vat_vat_lookup_with_http_info(input, opts)
+    # @return [LeadEnrichmentResponse]
+    def lead_enrichment_enrich_lead(request, opts = {})
+      data, _status_code, _headers = lead_enrichment_enrich_lead_with_http_info(request, opts)
       return data
     end
 
-    # Lookup a VAT code
-    # Checks if a VAT code is valid, and if it is, returns more information about it
-    # @param input Input VAT code
+    # Enrich an input lead with additional fields of data
+    # 
+    # @param request Input lead with known fields set, and unknown fields left blank (null)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(VatLookupResponse, Fixnum, Hash)>] VatLookupResponse data, response status code and response headers
-    def vat_vat_lookup_with_http_info(input, opts = {})
+    # @return [Array<(LeadEnrichmentResponse, Fixnum, Hash)>] LeadEnrichmentResponse data, response status code and response headers
+    def lead_enrichment_enrich_lead_with_http_info(request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: VatApi.vat_vat_lookup ..."
+        @api_client.config.logger.debug "Calling API: LeadEnrichmentApi.lead_enrichment_enrich_lead ..."
       end
-      # verify the required parameter 'input' is set
-      if @api_client.config.client_side_validation && input.nil?
-        fail ArgumentError, "Missing the required parameter 'input' when calling VatApi.vat_vat_lookup"
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling LeadEnrichmentApi.lead_enrichment_enrich_lead"
       end
       # resource path
-      local_var_path = "/validate/vat/lookup"
+      local_var_path = "/validate/lead-enrichment/lead/enrich"
 
       # query parameters
       query_params = {}
@@ -60,7 +60,7 @@ module CloudmersiveValidateApiClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(input)
+      post_body = @api_client.object_to_http_body(request)
       auth_names = ['Apikey']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -68,9 +68,9 @@ module CloudmersiveValidateApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'VatLookupResponse')
+        :return_type => 'LeadEnrichmentResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VatApi#vat_vat_lookup\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LeadEnrichmentApi#lead_enrichment_enrich_lead\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

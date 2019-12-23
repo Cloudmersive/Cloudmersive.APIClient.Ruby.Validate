@@ -59,7 +59,7 @@ describe 'DomainApi' do
   # unit tests for domain_url_full
   # Validate a URL fully
   # Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
-  # @param request 
+  # @param request Input URL request
   # @param [Hash] opts the optional parameters
   # @return [ValidateUrlResponseFull]
   describe 'domain_url_full test' do
@@ -71,7 +71,7 @@ describe 'DomainApi' do
   # unit tests for domain_url_syntax_only
   # Validate a URL syntactically
   # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
-  # @param request 
+  # @param request Input URL information
   # @param [Hash] opts the optional parameters
   # @return [ValidateUrlResponseSyntaxOnly]
   describe 'domain_url_syntax_only test' do
