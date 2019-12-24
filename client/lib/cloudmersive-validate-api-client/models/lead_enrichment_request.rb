@@ -18,6 +18,12 @@ module CloudmersiveValidateApiClient
     # The person's business email address for the lead
     attr_accessor :contact_business_email
 
+    # The person's first name for the lead
+    attr_accessor :contact_first_name
+
+    # The person's last name for the lead
+    attr_accessor :contact_last_name
+
     # Name of the company for the lead
     attr_accessor :company_name
 
@@ -42,6 +48,12 @@ module CloudmersiveValidateApiClient
     # Country of the address of the company for the lead
     attr_accessor :company_country
 
+    # Country Code (2-letter ISO 3166-1) of the address of the company for the lead
+    attr_accessor :company_country_code
+
+    # Telephone of the company office for the lead
+    attr_accessor :company_telephone
+
     # VAT number of the company for the lead
     attr_accessor :company_vat_number
 
@@ -50,6 +62,8 @@ module CloudmersiveValidateApiClient
     def self.attribute_map
       {
         :'contact_business_email' => :'ContactBusinessEmail',
+        :'contact_first_name' => :'ContactFirstName',
+        :'contact_last_name' => :'ContactLastName',
         :'company_name' => :'CompanyName',
         :'company_domain_name' => :'CompanyDomainName',
         :'company_house_number' => :'CompanyHouseNumber',
@@ -58,6 +72,8 @@ module CloudmersiveValidateApiClient
         :'company_state_or_province' => :'CompanyStateOrProvince',
         :'company_postal_code' => :'CompanyPostalCode',
         :'company_country' => :'CompanyCountry',
+        :'company_country_code' => :'CompanyCountryCode',
+        :'company_telephone' => :'CompanyTelephone',
         :'company_vat_number' => :'CompanyVATNumber'
       }
     end
@@ -66,6 +82,8 @@ module CloudmersiveValidateApiClient
     def self.swagger_types
       {
         :'contact_business_email' => :'String',
+        :'contact_first_name' => :'String',
+        :'contact_last_name' => :'String',
         :'company_name' => :'String',
         :'company_domain_name' => :'String',
         :'company_house_number' => :'String',
@@ -74,6 +92,8 @@ module CloudmersiveValidateApiClient
         :'company_state_or_province' => :'String',
         :'company_postal_code' => :'String',
         :'company_country' => :'String',
+        :'company_country_code' => :'String',
+        :'company_telephone' => :'String',
         :'company_vat_number' => :'String'
       }
     end
@@ -88,6 +108,14 @@ module CloudmersiveValidateApiClient
 
       if attributes.has_key?(:'ContactBusinessEmail')
         self.contact_business_email = attributes[:'ContactBusinessEmail']
+      end
+
+      if attributes.has_key?(:'ContactFirstName')
+        self.contact_first_name = attributes[:'ContactFirstName']
+      end
+
+      if attributes.has_key?(:'ContactLastName')
+        self.contact_last_name = attributes[:'ContactLastName']
       end
 
       if attributes.has_key?(:'CompanyName')
@@ -122,6 +150,14 @@ module CloudmersiveValidateApiClient
         self.company_country = attributes[:'CompanyCountry']
       end
 
+      if attributes.has_key?(:'CompanyCountryCode')
+        self.company_country_code = attributes[:'CompanyCountryCode']
+      end
+
+      if attributes.has_key?(:'CompanyTelephone')
+        self.company_telephone = attributes[:'CompanyTelephone']
+      end
+
       if attributes.has_key?(:'CompanyVATNumber')
         self.company_vat_number = attributes[:'CompanyVATNumber']
       end
@@ -147,6 +183,8 @@ module CloudmersiveValidateApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           contact_business_email == o.contact_business_email &&
+          contact_first_name == o.contact_first_name &&
+          contact_last_name == o.contact_last_name &&
           company_name == o.company_name &&
           company_domain_name == o.company_domain_name &&
           company_house_number == o.company_house_number &&
@@ -155,6 +193,8 @@ module CloudmersiveValidateApiClient
           company_state_or_province == o.company_state_or_province &&
           company_postal_code == o.company_postal_code &&
           company_country == o.company_country &&
+          company_country_code == o.company_country_code &&
+          company_telephone == o.company_telephone &&
           company_vat_number == o.company_vat_number
     end
 
@@ -167,7 +207,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [contact_business_email, company_name, company_domain_name, company_house_number, company_street, company_city, company_state_or_province, company_postal_code, company_country, company_vat_number].hash
+      [contact_business_email, contact_first_name, contact_last_name, company_name, company_domain_name, company_house_number, company_street, company_city, company_state_or_province, company_postal_code, company_country, company_country_code, company_telephone, company_vat_number].hash
     end
 
     # Builds the object from hash

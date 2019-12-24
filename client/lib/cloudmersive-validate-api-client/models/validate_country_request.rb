@@ -13,63 +13,23 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of parsing an address into its component parts
-  class ParseAddressResponse
-    # True if the parsing operation was successful, false otherwise
-    attr_accessor :successful
-
-    # The name of the building, house or structure if applicable, such as \"Cloudmersive Building 2\".  This will often by null.
-    attr_accessor :building
-
-    # The street number or house number of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"1600\".  This value will typically be populated for most addresses.
-    attr_accessor :street_number
-
-    # The name of the street or road of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"Pennsylvania Avenue NW\".
-    attr_accessor :street
-
-    # The city of the address.
-    attr_accessor :city
-
-    # The state or province of the address.
-    attr_accessor :state_or_province
-
-    # The postal code or zip code of the address.
-    attr_accessor :postal_code
-
-    # Country of the address, if present in the address.  If not included in the address it will be null.
-    attr_accessor :country_full_name
-
-    # Two-letter ISO 3166-1 country code
-    attr_accessor :iso_two_letter_code
+  # Input parameter to a country validation request
+  class ValidateCountryRequest
+    # Raw country input - can be a two-letter code (FIPS 10-4 or ISO 3166-1), three-letter code (ISO 3166-1) or country name
+    attr_accessor :raw_country_input
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'building' => :'Building',
-        :'street_number' => :'StreetNumber',
-        :'street' => :'Street',
-        :'city' => :'City',
-        :'state_or_province' => :'StateOrProvince',
-        :'postal_code' => :'PostalCode',
-        :'country_full_name' => :'CountryFullName',
-        :'iso_two_letter_code' => :'ISOTwoLetterCode'
+        :'raw_country_input' => :'RawCountryInput'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'building' => :'String',
-        :'street_number' => :'String',
-        :'street' => :'String',
-        :'city' => :'String',
-        :'state_or_province' => :'String',
-        :'postal_code' => :'String',
-        :'country_full_name' => :'String',
-        :'iso_two_letter_code' => :'String'
+        :'raw_country_input' => :'String'
       }
     end
 
@@ -81,40 +41,8 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
-      end
-
-      if attributes.has_key?(:'Building')
-        self.building = attributes[:'Building']
-      end
-
-      if attributes.has_key?(:'StreetNumber')
-        self.street_number = attributes[:'StreetNumber']
-      end
-
-      if attributes.has_key?(:'Street')
-        self.street = attributes[:'Street']
-      end
-
-      if attributes.has_key?(:'City')
-        self.city = attributes[:'City']
-      end
-
-      if attributes.has_key?(:'StateOrProvince')
-        self.state_or_province = attributes[:'StateOrProvince']
-      end
-
-      if attributes.has_key?(:'PostalCode')
-        self.postal_code = attributes[:'PostalCode']
-      end
-
-      if attributes.has_key?(:'CountryFullName')
-        self.country_full_name = attributes[:'CountryFullName']
-      end
-
-      if attributes.has_key?(:'ISOTwoLetterCode')
-        self.iso_two_letter_code = attributes[:'ISOTwoLetterCode']
+      if attributes.has_key?(:'RawCountryInput')
+        self.raw_country_input = attributes[:'RawCountryInput']
       end
 
     end
@@ -137,15 +65,7 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          building == o.building &&
-          street_number == o.street_number &&
-          street == o.street &&
-          city == o.city &&
-          state_or_province == o.state_or_province &&
-          postal_code == o.postal_code &&
-          country_full_name == o.country_full_name &&
-          iso_two_letter_code == o.iso_two_letter_code
+          raw_country_input == o.raw_country_input
     end
 
     # @see the `==` method
@@ -157,7 +77,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, building, street_number, street, city, state_or_province, postal_code, country_full_name, iso_two_letter_code].hash
+      [raw_country_input].hash
     end
 
     # Builds the object from hash

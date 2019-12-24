@@ -32,6 +32,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_country
+  # Validate and normalize country information, return ISO 3166-1 country codes and country name
+  # Validates and normalizes country information, and returns key information about a country.
+  # @param input Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateCountryResponse]
+  describe 'address_country test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_parse_string
   # Parse an unstructured input text string into an international, formatted address
   # Uses machine learning and Natural Language Processing (NLP) to handle a wide array of cases, including non-standard and unstructured address strings across a wide array of countries and address formatting norms.

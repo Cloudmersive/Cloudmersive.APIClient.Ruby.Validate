@@ -4,7 +4,62 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**address_country**](AddressApi.md#address_country) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**address_parse_string**](AddressApi.md#address_parse_string) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+
+
+# **address_country**
+> ValidateCountryResponse address_country(input)
+
+Validate and normalize country information, return ISO 3166-1 country codes and country name
+
+Validates and normalizes country information, and returns key information about a country.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::AddressApi.new
+
+input = CloudmersiveValidateApiClient::ValidateCountryRequest.new # ValidateCountryRequest | Input request
+
+
+begin
+  #Validate and normalize country information, return ISO 3166-1 country codes and country name
+  result = api_instance.address_country(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling AddressApi->address_country: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateCountryRequest**](ValidateCountryRequest.md)| Input request | 
+
+### Return type
+
+[**ValidateCountryResponse**](ValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 
 
 # **address_parse_string**

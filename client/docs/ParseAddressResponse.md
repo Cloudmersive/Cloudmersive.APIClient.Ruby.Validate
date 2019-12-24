@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **city** | **String** | The city of the address. | [optional] 
 **state_or_province** | **String** | The state or province of the address. | [optional] 
 **postal_code** | **String** | The postal code or zip code of the address. | [optional] 
-**country** | **String** | Country of the address, if present in the address.  If not included in the address it will be null. | [optional] 
+**country_full_name** | **String** | Country of the address, if present in the address.  If not included in the address it will be null. | [optional] 
+**iso_two_letter_code** | **String** | Two-letter ISO 3166-1 country code | [optional] 
 
 

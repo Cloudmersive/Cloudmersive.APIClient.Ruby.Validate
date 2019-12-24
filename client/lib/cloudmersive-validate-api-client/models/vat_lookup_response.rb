@@ -27,8 +27,29 @@ module CloudmersiveValidateApiClient
     # Name of the business
     attr_accessor :business_name
 
-    # Business address
+    # Business address as a single string
     attr_accessor :business_address
+
+    # For the business address, the name of the building, house or structure if applicable, such as \"Cloudmersive Building 2\".  This will often by null.
+    attr_accessor :business_building
+
+    # For the business address, the street number or house number of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"1600\".  This value will typically be populated for most addresses.
+    attr_accessor :business_street_number
+
+    # For the business address, the name of the street or road of the address.  For example, in the address \"1600 Pennsylvania Avenue NW\" the street number would be \"Pennsylvania Avenue NW\".
+    attr_accessor :business_street
+
+    # For the business address, the city of the address.
+    attr_accessor :business_city
+
+    # For the business address, the state or province of the address.
+    attr_accessor :business_state_or_province
+
+    # For the business address, the postal code or zip code of the address.
+    attr_accessor :business_postal_code
+
+    # For the business address, country of the address, if present in the address.  If not included in the address it will be null.
+    attr_accessor :business_country
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +59,14 @@ module CloudmersiveValidateApiClient
         :'vat_number' => :'VatNumber',
         :'is_valid' => :'IsValid',
         :'business_name' => :'BusinessName',
-        :'business_address' => :'BusinessAddress'
+        :'business_address' => :'BusinessAddress',
+        :'business_building' => :'BusinessBuilding',
+        :'business_street_number' => :'BusinessStreetNumber',
+        :'business_street' => :'BusinessStreet',
+        :'business_city' => :'BusinessCity',
+        :'business_state_or_province' => :'BusinessStateOrProvince',
+        :'business_postal_code' => :'BusinessPostalCode',
+        :'business_country' => :'BusinessCountry'
       }
     end
 
@@ -49,7 +77,14 @@ module CloudmersiveValidateApiClient
         :'vat_number' => :'String',
         :'is_valid' => :'BOOLEAN',
         :'business_name' => :'String',
-        :'business_address' => :'String'
+        :'business_address' => :'String',
+        :'business_building' => :'String',
+        :'business_street_number' => :'String',
+        :'business_street' => :'String',
+        :'business_city' => :'String',
+        :'business_state_or_province' => :'String',
+        :'business_postal_code' => :'String',
+        :'business_country' => :'String'
       }
     end
 
@@ -81,6 +116,34 @@ module CloudmersiveValidateApiClient
         self.business_address = attributes[:'BusinessAddress']
       end
 
+      if attributes.has_key?(:'BusinessBuilding')
+        self.business_building = attributes[:'BusinessBuilding']
+      end
+
+      if attributes.has_key?(:'BusinessStreetNumber')
+        self.business_street_number = attributes[:'BusinessStreetNumber']
+      end
+
+      if attributes.has_key?(:'BusinessStreet')
+        self.business_street = attributes[:'BusinessStreet']
+      end
+
+      if attributes.has_key?(:'BusinessCity')
+        self.business_city = attributes[:'BusinessCity']
+      end
+
+      if attributes.has_key?(:'BusinessStateOrProvince')
+        self.business_state_or_province = attributes[:'BusinessStateOrProvince']
+      end
+
+      if attributes.has_key?(:'BusinessPostalCode')
+        self.business_postal_code = attributes[:'BusinessPostalCode']
+      end
+
+      if attributes.has_key?(:'BusinessCountry')
+        self.business_country = attributes[:'BusinessCountry']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -105,7 +168,14 @@ module CloudmersiveValidateApiClient
           vat_number == o.vat_number &&
           is_valid == o.is_valid &&
           business_name == o.business_name &&
-          business_address == o.business_address
+          business_address == o.business_address &&
+          business_building == o.business_building &&
+          business_street_number == o.business_street_number &&
+          business_street == o.business_street &&
+          business_city == o.business_city &&
+          business_state_or_province == o.business_state_or_province &&
+          business_postal_code == o.business_postal_code &&
+          business_country == o.business_country
     end
 
     # @see the `==` method
@@ -117,7 +187,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_code, vat_number, is_valid, business_name, business_address].hash
+      [country_code, vat_number, is_valid, business_name, business_address, business_building, business_street_number, business_street, business_city, business_state_or_province, business_postal_code, business_country].hash
     end
 
     # Builds the object from hash
