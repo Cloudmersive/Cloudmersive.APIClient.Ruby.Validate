@@ -1,4 +1,4 @@
-# CloudmersiveValidateApiClient::ValidateCountryResponse
+# CloudmersiveValidateApiClient::GetTimezonesResponse
 
 ## Properties
 Name | Type | Description | Notes

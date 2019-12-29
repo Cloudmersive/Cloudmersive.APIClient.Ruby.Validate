@@ -34,11 +34,23 @@ describe 'AddressApi' do
 
   # unit tests for address_country
   # Validate and normalize country information, return ISO 3166-1 country codes and country name
-  # Validates and normalizes country information, and returns key information about a country.
+  # Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
   # @param input Input request
   # @param [Hash] opts the optional parameters
   # @return [ValidateCountryResponse]
   describe 'address_country test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for address_get_timezone
+  # Gets IANA/Olsen time zones for a country
+  # Gets the IANA/Olsen time zones for a country.
+  # @param input Input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetTimezonesResponse]
+  describe 'address_get_timezone test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

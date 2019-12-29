@@ -13,8 +13,8 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of performing a country validation operation
-  class ValidateCountryResponse
+  # Result of performing a get time zones operation
+  class GetTimezonesResponse
     # True if successful, false otherwise
     attr_accessor :successful
 

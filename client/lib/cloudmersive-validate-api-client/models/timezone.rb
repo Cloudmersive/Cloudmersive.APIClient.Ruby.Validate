@@ -13,48 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of performing a country validation operation
-  class ValidateCountryResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # IANA/Olsen time zone
+  class Timezone
+    # Name of the Time Zone
+    attr_accessor :name
 
-    # Full name of the country
-    attr_accessor :country_full_name
-
-    # Two-letter ISO 3166-1 country code
-    attr_accessor :iso_two_letter_code
-
-    # Two-letter FIPS 10-4 country code
-    attr_accessor :fips_two_letter_code
-
-    # Three-letter ISO 3166-1 country code
-    attr_accessor :three_letter_code
-
-    # Time zones (IANA/Olsen) in the country
-    attr_accessor :timezones
+    # UTC offset for this time zone
+    attr_accessor :base_utc_offset
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'country_full_name' => :'CountryFullName',
-        :'iso_two_letter_code' => :'ISOTwoLetterCode',
-        :'fips_two_letter_code' => :'FIPSTwoLetterCode',
-        :'three_letter_code' => :'ThreeLetterCode',
-        :'timezones' => :'Timezones'
+        :'name' => :'Name',
+        :'base_utc_offset' => :'BaseUTCOffset'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'country_full_name' => :'String',
-        :'iso_two_letter_code' => :'String',
-        :'fips_two_letter_code' => :'String',
-        :'three_letter_code' => :'String',
-        :'timezones' => :'Array<Timezone>'
+        :'name' => :'String',
+        :'base_utc_offset' => :'String'
       }
     end
 
@@ -66,30 +46,12 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'Name')
+        self.name = attributes[:'Name']
       end
 
-      if attributes.has_key?(:'CountryFullName')
-        self.country_full_name = attributes[:'CountryFullName']
-      end
-
-      if attributes.has_key?(:'ISOTwoLetterCode')
-        self.iso_two_letter_code = attributes[:'ISOTwoLetterCode']
-      end
-
-      if attributes.has_key?(:'FIPSTwoLetterCode')
-        self.fips_two_letter_code = attributes[:'FIPSTwoLetterCode']
-      end
-
-      if attributes.has_key?(:'ThreeLetterCode')
-        self.three_letter_code = attributes[:'ThreeLetterCode']
-      end
-
-      if attributes.has_key?(:'Timezones')
-        if (value = attributes[:'Timezones']).is_a?(Array)
-          self.timezones = value
-        end
+      if attributes.has_key?(:'BaseUTCOffset')
+        self.base_utc_offset = attributes[:'BaseUTCOffset']
       end
 
     end
@@ -112,12 +74,8 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          country_full_name == o.country_full_name &&
-          iso_two_letter_code == o.iso_two_letter_code &&
-          fips_two_letter_code == o.fips_two_letter_code &&
-          three_letter_code == o.three_letter_code &&
-          timezones == o.timezones
+          name == o.name &&
+          base_utc_offset == o.base_utc_offset
     end
 
     # @see the `==` method
@@ -129,7 +87,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, country_full_name, iso_two_letter_code, fips_two_letter_code, three_letter_code, timezones].hash
+      [name, base_utc_offset].hash
     end
 
     # Builds the object from hash
