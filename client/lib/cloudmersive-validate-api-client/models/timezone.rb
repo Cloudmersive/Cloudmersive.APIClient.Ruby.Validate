@@ -21,12 +21,16 @@ module CloudmersiveValidateApiClient
     # UTC offset for this time zone
     attr_accessor :base_utc_offset
 
+    # The current time (Now) in this time zone
+    attr_accessor :now
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'Name',
-        :'base_utc_offset' => :'BaseUTCOffset'
+        :'base_utc_offset' => :'BaseUTCOffset',
+        :'now' => :'Now'
       }
     end
 
@@ -34,7 +38,8 @@ module CloudmersiveValidateApiClient
     def self.swagger_types
       {
         :'name' => :'String',
-        :'base_utc_offset' => :'String'
+        :'base_utc_offset' => :'String',
+        :'now' => :'DateTime'
       }
     end
 
@@ -52,6 +57,10 @@ module CloudmersiveValidateApiClient
 
       if attributes.has_key?(:'BaseUTCOffset')
         self.base_utc_offset = attributes[:'BaseUTCOffset']
+      end
+
+      if attributes.has_key?(:'Now')
+        self.now = attributes[:'Now']
       end
 
     end
@@ -75,7 +84,8 @@ module CloudmersiveValidateApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          base_utc_offset == o.base_utc_offset
+          base_utc_offset == o.base_utc_offset &&
+          now == o.now
     end
 
     # @see the `==` method
@@ -87,7 +97,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, base_utc_offset].hash
+      [name, base_utc_offset, now].hash
     end
 
     # Builds the object from hash
