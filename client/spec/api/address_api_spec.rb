@@ -68,4 +68,16 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_validate_address
+  # Validate a street address
+  # Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateAddressResponse]
+  describe 'address_validate_address test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

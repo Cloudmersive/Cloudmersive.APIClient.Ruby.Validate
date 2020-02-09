@@ -41,6 +41,8 @@ require 'cloudmersive-validate-api-client/models/phone_number_validation_respons
 require 'cloudmersive-validate-api-client/models/timezone'
 require 'cloudmersive-validate-api-client/models/user_agent_validate_request'
 require 'cloudmersive-validate-api-client/models/user_agent_validate_response'
+require 'cloudmersive-validate-api-client/models/validate_address_request'
+require 'cloudmersive-validate-api-client/models/validate_address_response'
 require 'cloudmersive-validate-api-client/models/validate_country_request'
 require 'cloudmersive-validate-api-client/models/validate_country_response'
 require 'cloudmersive-validate-api-client/models/validate_identifier_request'

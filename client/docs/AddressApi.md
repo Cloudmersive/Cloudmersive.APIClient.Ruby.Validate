@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**address_country**](AddressApi.md#address_country) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**address_get_timezone**](AddressApi.md#address_get_timezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**address_parse_string**](AddressApi.md#address_parse_string) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+[**address_validate_address**](AddressApi.md#address_validate_address) | **POST** /validate/address/street-address | Validate a street address
 
 
 # **address_country**
@@ -159,6 +160,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ParseAddressResponse**](ParseAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **address_validate_address**
+> ValidateAddressResponse address_validate_address(input)
+
+Validate a street address
+
+Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::AddressApi.new
+
+input = CloudmersiveValidateApiClient::ValidateAddressRequest.new # ValidateAddressRequest | Input parse request
+
+
+begin
+  #Validate a street address
+  result = api_instance.address_validate_address(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling AddressApi->address_validate_address: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateAddressRequest**](ValidateAddressRequest.md)| Input parse request | 
+
+### Return type
+
+[**ValidateAddressResponse**](ValidateAddressResponse.md)
 
 ### Authorization
 

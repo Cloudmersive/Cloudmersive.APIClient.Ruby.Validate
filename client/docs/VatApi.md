@@ -4,15 +4,15 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vat_vat_lookup**](VatApi.md#vat_vat_lookup) | **POST** /validate/vat/lookup | Lookup a VAT code
+[**vat_vat_lookup**](VatApi.md#vat_vat_lookup) | **POST** /validate/vat/lookup | Validate a VAT number
 
 
 # **vat_vat_lookup**
 > VatLookupResponse vat_vat_lookup(input)
 
-Lookup a VAT code
+Validate a VAT number
 
-Checks if a VAT code is valid, and if it is, returns more information about it
+Checks if a VAT code is valid, and if it is, returns more information about it.  The first two letters of the VAT number must be letters that indicate the country, such as LU20260743.  Possible country codes include Austria (AT), Belgium (BE), Bulgaria (BG), Cyprus (CY), Czech Republic (CZ), Germany (DE), Denmark (DK), Estonia (EE), Greece (EL), Spain (ES), Finland (FI), France (FR), United Kingdom (GB), Croatia (HR), Hungary (HU), Ireland (IE), Italy (IT), Lithuania (LT), Luxembourg (LU), Latvia (LV), Malta (MT), The Netherlands (NL), Poland (PL), Portugal (PT), Romania (RO), Sweden (SE), Slovenia (SI), Slovakia (SK).
 
 ### Example
 ```ruby
@@ -32,7 +32,7 @@ input = CloudmersiveValidateApiClient::VatLookupRequest.new # VatLookupRequest |
 
 
 begin
-  #Lookup a VAT code
+  #Validate a VAT number
   result = api_instance.vat_vat_lookup(input)
   p result
 rescue CloudmersiveValidateApiClient::ApiError => e
