@@ -30,7 +30,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::EmailApi.new
 
-email = "email_example" # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
+email = 'email_example' # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 
 
 begin
@@ -84,7 +84,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::EmailApi.new
 
-email = "email_example" # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
+email = 'email_example' # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 
 
 begin
@@ -138,7 +138,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::EmailApi.new
 
-value = "value_example" # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
+value = 'value_example' # String | Email address to validate, e.g. \"support@cloudmersive.com\".    The input is a string so be sure to enclose it in double-quotes.
 
 
 begin

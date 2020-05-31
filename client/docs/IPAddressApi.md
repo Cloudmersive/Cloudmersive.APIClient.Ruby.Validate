@@ -28,7 +28,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::IPAddressApi.new
 
-value = "value_example" # String | IP address to geolocate, e.g. \"55.55.55.55\".  The input is a string so be sure to enclose it in double-quotes.
+value = 'value_example' # String | IP address to geolocate, e.g. \"55.55.55.55\".  The input is a string so be sure to enclose it in double-quotes.
 
 
 begin

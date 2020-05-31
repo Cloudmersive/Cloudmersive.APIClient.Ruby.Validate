@@ -31,7 +31,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::DomainApi.new
 
-domain = "domain_example" # String | Domain name to check, for example \"cloudmersive.com\".  The input is a string so be sure to enclose it in double-quotes.
+domain = 'domain_example' # String | Domain name to check, for example \"cloudmersive.com\".  The input is a string so be sure to enclose it in double-quotes.
 
 
 begin
@@ -85,7 +85,7 @@ end
 
 api_instance = CloudmersiveValidateApiClient::DomainApi.new
 
-domain = "domain_example" # String | Domain name to check, for example \"cloudmersive.com\".   The input is a string so be sure to enclose it in double-quotes.
+domain = 'domain_example' # String | Domain name to check, for example \"cloudmersive.com\".   The input is a string so be sure to enclose it in double-quotes.
 
 
 begin
