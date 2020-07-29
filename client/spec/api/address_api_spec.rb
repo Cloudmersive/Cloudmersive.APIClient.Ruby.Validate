@@ -32,9 +32,21 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_check_eu_membership
+  # Check if a country is a member of the European Union (EU)
+  # Checks if the input country is a member of the European Union or not.
+  # @param input Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateCountryResponse]
+  describe 'address_check_eu_membership test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_country
   # Validate and normalize country information, return ISO 3166-1 country codes and country name
-  # Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+  # Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
   # @param input Input request
   # @param [Hash] opts the optional parameters
   # @return [ValidateCountryResponse]
@@ -75,6 +87,18 @@ describe 'AddressApi' do
   # @param [Hash] opts the optional parameters
   # @return [ValidateAddressResponse]
   describe 'address_validate_address test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for address_validate_postal_code
+  # Validate a postal code, get location information about it
+  # Checks if the input postal code is valid, and returns information about it such as City, State and more.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidatePostalCodeResponse]
+  describe 'address_validate_postal_code test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

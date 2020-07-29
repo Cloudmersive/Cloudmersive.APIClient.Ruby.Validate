@@ -19,8 +19,62 @@ module CloudmersiveValidateApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Check if a country is a member of the European Union (EU)
+    # Checks if the input country is a member of the European Union or not.
+    # @param input Input request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateCountryResponse]
+    def address_check_eu_membership(input, opts = {})
+      data, _status_code, _headers = address_check_eu_membership_with_http_info(input, opts)
+      data
+    end
+
+    # Check if a country is a member of the European Union (EU)
+    # Checks if the input country is a member of the European Union or not.
+    # @param input Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateCountryResponse, Fixnum, Hash)>] ValidateCountryResponse data, response status code and response headers
+    def address_check_eu_membership_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_check_eu_membership ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_check_eu_membership"
+      end
+      # resource path
+      local_var_path = '/validate/address/country/check-eu-membership'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateCountryResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_check_eu_membership\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate and normalize country information, return ISO 3166-1 country codes and country name
-    # Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+    # Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
     # @param input Input request
     # @param [Hash] opts the optional parameters
     # @return [ValidateCountryResponse]
@@ -30,7 +84,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Validate and normalize country information, return ISO 3166-1 country codes and country name
-    # Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+    # Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
     # @param input Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateCountryResponse, Fixnum, Hash)>] ValidateCountryResponse data, response status code and response headers
@@ -232,6 +286,60 @@ module CloudmersiveValidateApiClient
         :return_type => 'ValidateAddressResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AddressApi#address_validate_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Validate a postal code, get location information about it
+    # Checks if the input postal code is valid, and returns information about it such as City, State and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidatePostalCodeResponse]
+    def address_validate_postal_code(input, opts = {})
+      data, _status_code, _headers = address_validate_postal_code_with_http_info(input, opts)
+      data
+    end
+
+    # Validate a postal code, get location information about it
+    # Checks if the input postal code is valid, and returns information about it such as City, State and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidatePostalCodeResponse, Fixnum, Hash)>] ValidatePostalCodeResponse data, response status code and response headers
+    def address_validate_postal_code_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_validate_postal_code ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_validate_postal_code"
+      end
+      # resource path
+      local_var_path = '/validate/address/postal-code'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidatePostalCodeResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_validate_postal_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

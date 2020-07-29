@@ -4,10 +4,66 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**address_check_eu_membership**](AddressApi.md#address_check_eu_membership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**address_country**](AddressApi.md#address_country) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**address_get_timezone**](AddressApi.md#address_get_timezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**address_parse_string**](AddressApi.md#address_parse_string) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**address_validate_address**](AddressApi.md#address_validate_address) | **POST** /validate/address/street-address | Validate a street address
+[**address_validate_postal_code**](AddressApi.md#address_validate_postal_code) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
+
+
+# **address_check_eu_membership**
+> ValidateCountryResponse address_check_eu_membership(input)
+
+Check if a country is a member of the European Union (EU)
+
+Checks if the input country is a member of the European Union or not.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::AddressApi.new
+
+input = CloudmersiveValidateApiClient::ValidateCountryRequest.new # ValidateCountryRequest | Input request
+
+
+begin
+  #Check if a country is a member of the European Union (EU)
+  result = api_instance.address_check_eu_membership(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling AddressApi->address_check_eu_membership: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateCountryRequest**](ValidateCountryRequest.md)| Input request | 
+
+### Return type
+
+[**ValidateCountryResponse**](ValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 
 
 # **address_country**
@@ -15,7 +71,7 @@ Method | HTTP request | Description
 
 Validate and normalize country information, return ISO 3166-1 country codes and country name
 
-Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
 
 ### Example
 ```ruby
@@ -214,6 +270,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateAddressResponse**](ValidateAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **address_validate_postal_code**
+> ValidatePostalCodeResponse address_validate_postal_code(input)
+
+Validate a postal code, get location information about it
+
+Checks if the input postal code is valid, and returns information about it such as City, State and more.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::AddressApi.new
+
+input = CloudmersiveValidateApiClient::ValidatePostalCodeRequest.new # ValidatePostalCodeRequest | Input parse request
+
+
+begin
+  #Validate a postal code, get location information about it
+  result = api_instance.address_validate_postal_code(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling AddressApi->address_validate_postal_code: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidatePostalCodeRequest**](ValidatePostalCodeRequest.md)| Input parse request | 
+
+### Return type
+
+[**ValidatePostalCodeResponse**](ValidatePostalCodeResponse.md)
 
 ### Authorization
 

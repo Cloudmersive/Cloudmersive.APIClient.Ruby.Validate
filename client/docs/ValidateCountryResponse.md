@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **iso_two_letter_code** | **String** | Two-letter ISO 3166-1 country code | [optional] 
 **fips_two_letter_code** | **String** | Two-letter FIPS 10-4 country code | [optional] 
 **three_letter_code** | **String** | Three-letter ISO 3166-1 country code | [optional] 
+**is_european_union_member** | **BOOLEAN** | True if this country is currently a member of the European Union (EU), false otherwise | [optional] 
 **timezones** | [**Array&lt;Timezone&gt;**](Timezone.md) | Time zones (IANA/Olsen) in the country | [optional] 
 
 
