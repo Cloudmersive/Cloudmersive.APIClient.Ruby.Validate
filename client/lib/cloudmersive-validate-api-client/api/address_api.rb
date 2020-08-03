@@ -127,6 +127,52 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Get a list of ISO 3166-1 countries
+    # Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+    # @param [Hash] opts the optional parameters
+    # @return [CountryListResult]
+    def address_country_list(opts = {})
+      data, _status_code, _headers = address_country_list_with_http_info(opts)
+      data
+    end
+
+    # Get a list of ISO 3166-1 countries
+    # Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CountryListResult, Fixnum, Hash)>] CountryListResult data, response status code and response headers
+    def address_country_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_country_list ...'
+      end
+      # resource path
+      local_var_path = '/validate/address/country/list'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CountryListResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_country_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Gets IANA/Olsen time zones for a country
     # Gets the IANA/Olsen time zones for a country.
     # @param input Input request
@@ -289,6 +335,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Validate a City and State/Province combination, get location information about it
+    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateCityResponse]
+    def address_validate_city(input, opts = {})
+      data, _status_code, _headers = address_validate_city_with_http_info(input, opts)
+      data
+    end
+
+    # Validate a City and State/Province combination, get location information about it
+    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateCityResponse, Fixnum, Hash)>] ValidateCityResponse data, response status code and response headers
+    def address_validate_city_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_validate_city ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_validate_city"
+      end
+      # resource path
+      local_var_path = '/validate/address/city'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateCityResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_validate_city\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate a postal code, get location information about it
     # Checks if the input postal code is valid, and returns information about it such as City, State and more.
     # @param input Input parse request
@@ -340,6 +440,60 @@ module CloudmersiveValidateApiClient
         :return_type => 'ValidatePostalCodeResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AddressApi#address_validate_postal_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Validate a state or province, name or abbreviation, get location information about it
+    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateStateResponse]
+    def address_validate_state(input, opts = {})
+      data, _status_code, _headers = address_validate_state_with_http_info(input, opts)
+      data
+    end
+
+    # Validate a state or province, name or abbreviation, get location information about it
+    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateStateResponse, Fixnum, Hash)>] ValidateStateResponse data, response status code and response headers
+    def address_validate_state_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_validate_state ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_validate_state"
+      end
+      # resource path
+      local_var_path = '/validate/address/state'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateStateResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_validate_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -13,42 +13,37 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a postal code
-  class ValidatePostalCodeResponse
-    # True if the Postal Code is valid, false otherwise
-    attr_accessor :valid_postal_code
+  # Details of one country
+  class CountryDetails
+    # Name of the country
+    attr_accessor :country_name
 
-    # If valid, City corresponding to the input postal code, such as 'Walnut Creek'
-    attr_accessor :city
+    # Three-letter ISO 3166-1 country code
+    attr_accessor :three_letter_code
 
-    # If valid; State or province corresponding to the input postal code, such as 'CA' or 'California'
-    attr_accessor :state_or_province
+    # Two-letter ISO 3166-1 country code
+    attr_accessor :iso_two_letter_code
 
-    # If the postal code is valid, the degrees latitude of the centroid of the postal code, null otherwise
-    attr_accessor :latitude
-
-    # If the postal code is valid, the degrees longitude of the centroid of the postal code, null otherwise
-    attr_accessor :longitude
+    # True if this country is currently a member of the European Union (EU), false otherwise
+    attr_accessor :is_european_union_member
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_postal_code' => :'ValidPostalCode',
-        :'city' => :'City',
-        :'state_or_province' => :'StateOrProvince',
-        :'latitude' => :'Latitude',
-        :'longitude' => :'Longitude'
+        :'country_name' => :'CountryName',
+        :'three_letter_code' => :'ThreeLetterCode',
+        :'iso_two_letter_code' => :'ISOTwoLetterCode',
+        :'is_european_union_member' => :'IsEuropeanUnionMember'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_postal_code' => :'BOOLEAN',
-        :'city' => :'String',
-        :'state_or_province' => :'String',
-        :'latitude' => :'Float',
-        :'longitude' => :'Float'
+        :'country_name' => :'String',
+        :'three_letter_code' => :'String',
+        :'iso_two_letter_code' => :'String',
+        :'is_european_union_member' => :'BOOLEAN'
       }
     end
 
@@ -60,24 +55,20 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'ValidPostalCode')
-        self.valid_postal_code = attributes[:'ValidPostalCode']
+      if attributes.has_key?(:'CountryName')
+        self.country_name = attributes[:'CountryName']
       end
 
-      if attributes.has_key?(:'City')
-        self.city = attributes[:'City']
+      if attributes.has_key?(:'ThreeLetterCode')
+        self.three_letter_code = attributes[:'ThreeLetterCode']
       end
 
-      if attributes.has_key?(:'StateOrProvince')
-        self.state_or_province = attributes[:'StateOrProvince']
+      if attributes.has_key?(:'ISOTwoLetterCode')
+        self.iso_two_letter_code = attributes[:'ISOTwoLetterCode']
       end
 
-      if attributes.has_key?(:'Latitude')
-        self.latitude = attributes[:'Latitude']
-      end
-
-      if attributes.has_key?(:'Longitude')
-        self.longitude = attributes[:'Longitude']
+      if attributes.has_key?(:'IsEuropeanUnionMember')
+        self.is_european_union_member = attributes[:'IsEuropeanUnionMember']
       end
     end
 
@@ -99,11 +90,10 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_postal_code == o.valid_postal_code &&
-          city == o.city &&
-          state_or_province == o.state_or_province &&
-          latitude == o.latitude &&
-          longitude == o.longitude
+          country_name == o.country_name &&
+          three_letter_code == o.three_letter_code &&
+          iso_two_letter_code == o.iso_two_letter_code &&
+          is_european_union_member == o.is_european_union_member
     end
 
     # @see the `==` method
@@ -115,7 +105,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_postal_code, city, state_or_province, latitude, longitude].hash
+      [country_name, three_letter_code, iso_two_letter_code, is_european_union_member].hash
     end
 
     # Builds the object from hash

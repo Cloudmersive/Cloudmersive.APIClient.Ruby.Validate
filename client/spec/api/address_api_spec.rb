@@ -56,6 +56,17 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_country_list
+  # Get a list of ISO 3166-1 countries
+  # Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+  # @param [Hash] opts the optional parameters
+  # @return [CountryListResult]
+  describe 'address_country_list test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_get_timezone
   # Gets IANA/Olsen time zones for a country
   # Gets the IANA/Olsen time zones for a country.
@@ -92,6 +103,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_validate_city
+  # Validate a City and State/Province combination, get location information about it
+  # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateCityResponse]
+  describe 'address_validate_city test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_validate_postal_code
   # Validate a postal code, get location information about it
   # Checks if the input postal code is valid, and returns information about it such as City, State and more.
@@ -99,6 +122,18 @@ describe 'AddressApi' do
   # @param [Hash] opts the optional parameters
   # @return [ValidatePostalCodeResponse]
   describe 'address_validate_postal_code test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for address_validate_state
+  # Validate a state or province, name or abbreviation, get location information about it
+  # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateStateResponse]
+  describe 'address_validate_state test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

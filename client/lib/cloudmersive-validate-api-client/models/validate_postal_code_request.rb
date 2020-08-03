@@ -15,7 +15,7 @@ require 'date'
 module CloudmersiveValidateApiClient
   # Request to Validate a Postal Code
   class ValidatePostalCodeRequest
-    # Optional (recommended); Zip code or postal code of the address to validate, such as '94597'
+    # Required: Zip code or postal code of the address to validate, such as '94597'
     attr_accessor :postal_code
 
     # Optional (recommended); Name of the country, such as 'United States'.  If left blank, and CountryCode is also left blank, will default to United States.  Global countries are supported.
