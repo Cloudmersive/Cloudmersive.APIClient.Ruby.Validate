@@ -32,6 +32,18 @@ describe 'IPAddressApi' do
     end
   end
 
+  # unit tests for i_p_address_is_tor_node
+  # Check if IP address is a Tor node server
+  # Check if the input IP address is a Tor exit node server.  Tor servers are a type of privacy-preserving technology that can hide the original IP address who makes a request.
+  # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [TorNodeResponse]
+  describe 'i_p_address_is_tor_node test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for i_p_address_post
   # Geolocate an IP address
   # Identify an IP address Country, State/Provence, City, Zip/Postal Code, etc.  Useful for security and UX applications.
