@@ -27,13 +27,25 @@ module CloudmersiveValidateApiClient
     # True if this country is currently a member of the European Union (EU), false otherwise
     attr_accessor :is_european_union_member
 
+    # ISO 4217 currency three-letter code associated with the country
+    attr_accessor :iso_currency_code
+
+    # Symbol associated with the currency
+    attr_accessor :currency_symbol
+
+    # Full name of the currency
+    attr_accessor :currency_english_name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'country_name' => :'CountryName',
         :'three_letter_code' => :'ThreeLetterCode',
         :'iso_two_letter_code' => :'ISOTwoLetterCode',
-        :'is_european_union_member' => :'IsEuropeanUnionMember'
+        :'is_european_union_member' => :'IsEuropeanUnionMember',
+        :'iso_currency_code' => :'ISOCurrencyCode',
+        :'currency_symbol' => :'CurrencySymbol',
+        :'currency_english_name' => :'CurrencyEnglishName'
       }
     end
 
@@ -43,7 +55,10 @@ module CloudmersiveValidateApiClient
         :'country_name' => :'String',
         :'three_letter_code' => :'String',
         :'iso_two_letter_code' => :'String',
-        :'is_european_union_member' => :'BOOLEAN'
+        :'is_european_union_member' => :'BOOLEAN',
+        :'iso_currency_code' => :'String',
+        :'currency_symbol' => :'String',
+        :'currency_english_name' => :'String'
       }
     end
 
@@ -70,6 +85,18 @@ module CloudmersiveValidateApiClient
       if attributes.has_key?(:'IsEuropeanUnionMember')
         self.is_european_union_member = attributes[:'IsEuropeanUnionMember']
       end
+
+      if attributes.has_key?(:'ISOCurrencyCode')
+        self.iso_currency_code = attributes[:'ISOCurrencyCode']
+      end
+
+      if attributes.has_key?(:'CurrencySymbol')
+        self.currency_symbol = attributes[:'CurrencySymbol']
+      end
+
+      if attributes.has_key?(:'CurrencyEnglishName')
+        self.currency_english_name = attributes[:'CurrencyEnglishName']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -93,7 +120,10 @@ module CloudmersiveValidateApiClient
           country_name == o.country_name &&
           three_letter_code == o.three_letter_code &&
           iso_two_letter_code == o.iso_two_letter_code &&
-          is_european_union_member == o.is_european_union_member
+          is_european_union_member == o.is_european_union_member &&
+          iso_currency_code == o.iso_currency_code &&
+          currency_symbol == o.currency_symbol &&
+          currency_english_name == o.currency_english_name
     end
 
     # @see the `==` method
@@ -105,7 +135,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_name, three_letter_code, iso_two_letter_code, is_european_union_member].hash
+      [country_name, three_letter_code, iso_two_letter_code, is_european_union_member, iso_currency_code, currency_symbol, currency_english_name].hash
     end
 
     # Builds the object from hash

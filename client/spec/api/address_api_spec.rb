@@ -67,6 +67,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_get_country_currency
+  # Get the currency of the input country
+  # Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+  # @param input Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateCountryResponse]
+  describe 'address_get_country_currency test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_get_timezone
   # Gets IANA/Olsen time zones for a country
   # Gets the IANA/Olsen time zones for a country.

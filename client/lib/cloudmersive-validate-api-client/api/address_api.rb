@@ -173,6 +173,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Get the currency of the input country
+    # Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+    # @param input Input request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateCountryResponse]
+    def address_get_country_currency(input, opts = {})
+      data, _status_code, _headers = address_get_country_currency_with_http_info(input, opts)
+      data
+    end
+
+    # Get the currency of the input country
+    # Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+    # @param input Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateCountryResponse, Fixnum, Hash)>] ValidateCountryResponse data, response status code and response headers
+    def address_get_country_currency_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_get_country_currency ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_get_country_currency"
+      end
+      # resource path
+      local_var_path = '/validate/address/country/get-currency'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateCountryResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_get_country_currency\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Gets IANA/Olsen time zones for a country
     # Gets the IANA/Olsen time zones for a country.
     # @param input Input request
