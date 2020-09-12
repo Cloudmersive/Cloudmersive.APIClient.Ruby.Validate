@@ -282,7 +282,7 @@ module CloudmersiveValidateApiClient
       return data, status_code, headers
     end
     # Validate a street address
-    # Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+    # Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [ValidateAddressResponse]
@@ -292,7 +292,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Validate a street address
-    # Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+    # Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateAddressResponse, Fixnum, Hash)>] ValidateAddressResponse data, response status code and response headers
@@ -336,7 +336,7 @@ module CloudmersiveValidateApiClient
       return data, status_code, headers
     end
     # Validate a City and State/Province combination, get location information about it
-    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [ValidateCityResponse]
@@ -346,7 +346,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Validate a City and State/Province combination, get location information about it
-    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+    # Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateCityResponse, Fixnum, Hash)>] ValidateCityResponse data, response status code and response headers
@@ -390,7 +390,7 @@ module CloudmersiveValidateApiClient
       return data, status_code, headers
     end
     # Validate a postal code, get location information about it
-    # Checks if the input postal code is valid, and returns information about it such as City, State and more.
+    # Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [ValidatePostalCodeResponse]
@@ -400,7 +400,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Validate a postal code, get location information about it
-    # Checks if the input postal code is valid, and returns information about it such as City, State and more.
+    # Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidatePostalCodeResponse, Fixnum, Hash)>] ValidatePostalCodeResponse data, response status code and response headers
@@ -444,7 +444,7 @@ module CloudmersiveValidateApiClient
       return data, status_code, headers
     end
     # Validate a state or province, name or abbreviation, get location information about it
-    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [ValidateStateResponse]
@@ -454,7 +454,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Validate a state or province, name or abbreviation, get location information about it
-    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+    # Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
     # @param input Input parse request
     # @param [Hash] opts the optional parameters
     # @return [Array<(ValidateStateResponse, Fixnum, Hash)>] ValidateStateResponse data, response status code and response headers
