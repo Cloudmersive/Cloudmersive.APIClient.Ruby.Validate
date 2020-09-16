@@ -36,6 +36,12 @@ module CloudmersiveValidateApiClient
     # Full name of the currency
     attr_accessor :currency_english_name
 
+    # Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania
+    attr_accessor :region
+
+    # Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,
+    attr_accessor :subregion
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -45,7 +51,9 @@ module CloudmersiveValidateApiClient
         :'is_european_union_member' => :'IsEuropeanUnionMember',
         :'iso_currency_code' => :'ISOCurrencyCode',
         :'currency_symbol' => :'CurrencySymbol',
-        :'currency_english_name' => :'CurrencyEnglishName'
+        :'currency_english_name' => :'CurrencyEnglishName',
+        :'region' => :'Region',
+        :'subregion' => :'Subregion'
       }
     end
 
@@ -58,7 +66,9 @@ module CloudmersiveValidateApiClient
         :'is_european_union_member' => :'BOOLEAN',
         :'iso_currency_code' => :'String',
         :'currency_symbol' => :'String',
-        :'currency_english_name' => :'String'
+        :'currency_english_name' => :'String',
+        :'region' => :'String',
+        :'subregion' => :'String'
       }
     end
 
@@ -97,6 +107,14 @@ module CloudmersiveValidateApiClient
       if attributes.has_key?(:'CurrencyEnglishName')
         self.currency_english_name = attributes[:'CurrencyEnglishName']
       end
+
+      if attributes.has_key?(:'Region')
+        self.region = attributes[:'Region']
+      end
+
+      if attributes.has_key?(:'Subregion')
+        self.subregion = attributes[:'Subregion']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,7 +141,9 @@ module CloudmersiveValidateApiClient
           is_european_union_member == o.is_european_union_member &&
           iso_currency_code == o.iso_currency_code &&
           currency_symbol == o.currency_symbol &&
-          currency_english_name == o.currency_english_name
+          currency_english_name == o.currency_english_name &&
+          region == o.region &&
+          subregion == o.subregion
     end
 
     # @see the `==` method
@@ -135,7 +155,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_name, three_letter_code, iso_two_letter_code, is_european_union_member, iso_currency_code, currency_symbol, currency_english_name].hash
+      [country_name, three_letter_code, iso_two_letter_code, is_european_union_member, iso_currency_code, currency_symbol, currency_english_name, region, subregion].hash
     end
 
     # Builds the object from hash

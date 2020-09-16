@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**address_country**](AddressApi.md#address_country) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**address_country_list**](AddressApi.md#address_country_list) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
 [**address_get_country_currency**](AddressApi.md#address_get_country_currency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
+[**address_get_country_region**](AddressApi.md#address_get_country_region) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 [**address_get_timezone**](AddressApi.md#address_get_timezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**address_parse_string**](AddressApi.md#address_parse_string) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**address_validate_address**](AddressApi.md#address_validate_address) | **POST** /validate/address/street-address | Validate a street address
@@ -202,6 +203,60 @@ begin
   p result
 rescue CloudmersiveValidateApiClient::ApiError => e
   puts "Exception when calling AddressApi->address_get_country_currency: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ValidateCountryRequest**](ValidateCountryRequest.md)| Input request | 
+
+### Return type
+
+[**ValidateCountryResponse**](ValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **address_get_country_region**
+> ValidateCountryResponse address_get_country_region(input)
+
+Get the region, subregion and continent of the country
+
+Gets the continent information including region and subregion for the input country.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::AddressApi.new
+
+input = CloudmersiveValidateApiClient::ValidateCountryRequest.new # ValidateCountryRequest | Input request
+
+
+begin
+  #Get the region, subregion and continent of the country
+  result = api_instance.address_get_country_region(input)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling AddressApi->address_get_country_region: #{e}"
 end
 ```
 

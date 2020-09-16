@@ -79,6 +79,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_get_country_region
+  # Get the region, subregion and continent of the country
+  # Gets the continent information including region and subregion for the input country.
+  # @param input Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateCountryResponse]
+  describe 'address_get_country_region test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_get_timezone
   # Gets IANA/Olsen time zones for a country
   # Gets the IANA/Olsen time zones for a country.
