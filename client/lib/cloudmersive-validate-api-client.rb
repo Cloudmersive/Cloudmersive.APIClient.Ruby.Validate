@@ -22,6 +22,7 @@ require 'cloudmersive-validate-api-client/models/address_verify_syntax_only_resp
 require 'cloudmersive-validate-api-client/models/check_response'
 require 'cloudmersive-validate-api-client/models/country_details'
 require 'cloudmersive-validate-api-client/models/country_list_result'
+require 'cloudmersive-validate-api-client/models/domain_quality_response'
 require 'cloudmersive-validate-api-client/models/first_name_validation_request'
 require 'cloudmersive-validate-api-client/models/first_name_validation_response'
 require 'cloudmersive-validate-api-client/models/full_email_validation_response'

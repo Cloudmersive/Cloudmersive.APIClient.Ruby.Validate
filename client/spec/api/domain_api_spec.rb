@@ -56,6 +56,18 @@ describe 'DomainApi' do
     end
   end
 
+  # unit tests for domain_quality_score
+  # Validate a domain name&#39;s quality score
+  # Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+  # @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot;.
+  # @param [Hash] opts the optional parameters
+  # @return [DomainQualityResponse]
+  describe 'domain_quality_score test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for domain_url_full
   # Validate a URL fully
   # Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.

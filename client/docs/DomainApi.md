@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domain_check**](DomainApi.md#domain_check) | **POST** /validate/domain/check | Validate a domain name
 [**domain_post**](DomainApi.md#domain_post) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+[**domain_quality_score**](DomainApi.md#domain_quality_score) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
 [**domain_url_full**](DomainApi.md#domain_url_full) | **POST** /validate/domain/url/full | Validate a URL fully
 [**domain_url_syntax_only**](DomainApi.md#domain_url_syntax_only) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
@@ -106,6 +107,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WhoisResponse**](WhoisResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: text/javascript, application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_quality_score**
+> DomainQualityResponse domain_quality_score(domain)
+
+Validate a domain name's quality score
+
+Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+domain = 'domain_example' # String | Domain name to check, for example \"cloudmersive.com\".
+
+
+begin
+  #Validate a domain name's quality score
+  result = api_instance.domain_quality_score(domain)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_quality_score: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String**| Domain name to check, for example \&quot;cloudmersive.com\&quot;. | 
+
+### Return type
+
+[**DomainQualityResponse**](DomainQualityResponse.md)
 
 ### Authorization
 

@@ -127,6 +127,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Validate a domain name's quality score
+    # Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+    # @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot;.
+    # @param [Hash] opts the optional parameters
+    # @return [DomainQualityResponse]
+    def domain_quality_score(domain, opts = {})
+      data, _status_code, _headers = domain_quality_score_with_http_info(domain, opts)
+      data
+    end
+
+    # Validate a domain name&#39;s quality score
+    # Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+    # @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainQualityResponse, Fixnum, Hash)>] DomainQualityResponse data, response status code and response headers
+    def domain_quality_score_with_http_info(domain, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DomainApi.domain_quality_score ...'
+      end
+      # verify the required parameter 'domain' is set
+      if @api_client.config.client_side_validation && domain.nil?
+        fail ArgumentError, "Missing the required parameter 'domain' when calling DomainApi.domain_quality_score"
+      end
+      # resource path
+      local_var_path = '/validate/domain/quality-score'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/javascript', 'application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(domain)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DomainQualityResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_quality_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate a URL fully
     # Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
     # @param request Input URL request
