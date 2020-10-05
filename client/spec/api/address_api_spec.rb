@@ -67,6 +67,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_geocode
+  # Geocode a street address into latitude and longitude
+  # Geocodes a street address into latitude and longitude.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateAddressResponse]
+  describe 'address_geocode test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_get_country_currency
   # Get the currency of the input country
   # Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
@@ -110,6 +122,18 @@ describe 'AddressApi' do
   # @param [Hash] opts the optional parameters
   # @return [ParseAddressResponse]
   describe 'address_parse_string test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for address_reverse_geocode_address
+  # Reverse geocode a lattitude and longitude into an address
+  # Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+  # @param input Input reverse geocoding request
+  # @param [Hash] opts the optional parameters
+  # @return [ReverseGeocodeAddressResponse]
+  describe 'address_reverse_geocode_address test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

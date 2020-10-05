@@ -173,6 +173,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Geocode a street address into latitude and longitude
+    # Geocodes a street address into latitude and longitude.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [ValidateAddressResponse]
+    def address_geocode(input, opts = {})
+      data, _status_code, _headers = address_geocode_with_http_info(input, opts)
+      data
+    end
+
+    # Geocode a street address into latitude and longitude
+    # Geocodes a street address into latitude and longitude.
+    # @param input Input parse request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ValidateAddressResponse, Fixnum, Hash)>] ValidateAddressResponse data, response status code and response headers
+    def address_geocode_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_geocode ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_geocode"
+      end
+      # resource path
+      local_var_path = '/validate/address/geocode'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ValidateAddressResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_geocode\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get the currency of the input country
     # Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
     # @param input Input request
@@ -386,6 +440,60 @@ module CloudmersiveValidateApiClient
         :return_type => 'ParseAddressResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AddressApi#address_parse_string\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Reverse geocode a lattitude and longitude into an address
+    # Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+    # @param input Input reverse geocoding request
+    # @param [Hash] opts the optional parameters
+    # @return [ReverseGeocodeAddressResponse]
+    def address_reverse_geocode_address(input, opts = {})
+      data, _status_code, _headers = address_reverse_geocode_address_with_http_info(input, opts)
+      data
+    end
+
+    # Reverse geocode a lattitude and longitude into an address
+    # Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+    # @param input Input reverse geocoding request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReverseGeocodeAddressResponse, Fixnum, Hash)>] ReverseGeocodeAddressResponse data, response status code and response headers
+    def address_reverse_geocode_address_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AddressApi.address_reverse_geocode_address ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling AddressApi.address_reverse_geocode_address"
+      end
+      # resource path
+      local_var_path = '/validate/address/geocode/reverse'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ReverseGeocodeAddressResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AddressApi#address_reverse_geocode_address\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
