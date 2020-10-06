@@ -32,6 +32,18 @@ describe 'IPAddressApi' do
     end
   end
 
+  # unit tests for i_p_address_geolocate_street_address
+  # Geolocate an IP address to a street address
+  # Identify an IP address&#39;s street address.  Useful for security and UX applications.
+  # @param value IP address to geolocate, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [GeolocateStreetAddressResponse]
+  describe 'i_p_address_geolocate_street_address test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for i_p_address_is_threat
   # Check if IP address is a known threat
   # Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.

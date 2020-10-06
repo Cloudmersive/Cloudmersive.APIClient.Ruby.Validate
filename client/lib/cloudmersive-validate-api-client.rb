@@ -29,6 +29,7 @@ require 'cloudmersive-validate-api-client/models/full_email_validation_response'
 require 'cloudmersive-validate-api-client/models/full_name_validation_request'
 require 'cloudmersive-validate-api-client/models/full_name_validation_response'
 require 'cloudmersive-validate-api-client/models/geolocate_response'
+require 'cloudmersive-validate-api-client/models/geolocate_street_address_response'
 require 'cloudmersive-validate-api-client/models/get_gender_request'
 require 'cloudmersive-validate-api-client/models/get_gender_response'
 require 'cloudmersive-validate-api-client/models/get_timezones_request'
@@ -67,6 +68,7 @@ require 'cloudmersive-validate-api-client/models/validate_url_response_syntax_on
 require 'cloudmersive-validate-api-client/models/vat_lookup_request'
 require 'cloudmersive-validate-api-client/models/vat_lookup_response'
 require 'cloudmersive-validate-api-client/models/whois_response'
+require 'cloudmersive-validate-api-client/models/xss_protection_result'
 
 # APIs
 require 'cloudmersive-validate-api-client/api/address_api'
@@ -76,6 +78,7 @@ require 'cloudmersive-validate-api-client/api/ip_address_api'
 require 'cloudmersive-validate-api-client/api/lead_enrichment_api'
 require 'cloudmersive-validate-api-client/api/name_api'
 require 'cloudmersive-validate-api-client/api/phone_number_api'
+require 'cloudmersive-validate-api-client/api/text_input_api'
 require 'cloudmersive-validate-api-client/api/user_agent_api'
 require 'cloudmersive-validate-api-client/api/vat_api'
 
