@@ -115,6 +115,18 @@ describe 'AddressApi' do
     end
   end
 
+  # unit tests for address_normalize_address
+  # Normalize a street address
+  # Normalizes an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
+  # @param input Input parse request
+  # @param [Hash] opts the optional parameters
+  # @return [NormalizeAddressResponse]
+  describe 'address_normalize_address test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for address_parse_string
   # Parse an unstructured input text string into an international, formatted address
   # Uses machine learning and Natural Language Processing (NLP) to handle a wide array of cases, including non-standard and unstructured address strings across a wide array of countries and address formatting norms.
