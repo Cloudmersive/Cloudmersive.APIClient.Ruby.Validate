@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**text_input_check_xss**](TextInputApi.md#text_input_check_xss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
+[**text_input_check_xss_batch**](TextInputApi.md#text_input_check_xss_batch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 [**text_input_protect_xss**](TextInputApi.md#text_input_protect_xss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 
 
@@ -50,6 +51,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XssProtectionResult**](XssProtectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **text_input_check_xss_batch**
+> XssProtectionBatchResponse text_input_check_xss_batch(value)
+
+Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+
+Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::TextInputApi.new
+
+value = CloudmersiveValidateApiClient::XssProtectionBatchRequest.new # XssProtectionBatchRequest | User-facing text input.
+
+
+begin
+  #Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+  result = api_instance.text_input_check_xss_batch(value)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling TextInputApi->text_input_check_xss_batch: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | [**XssProtectionBatchRequest**](XssProtectionBatchRequest.md)| User-facing text input. | 
+
+### Return type
+
+[**XssProtectionBatchResponse**](XssProtectionBatchResponse.md)
 
 ### Authorization
 

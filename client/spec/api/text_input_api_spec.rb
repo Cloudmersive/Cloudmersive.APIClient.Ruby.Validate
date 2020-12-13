@@ -44,6 +44,18 @@ describe 'TextInputApi' do
     end
   end
 
+  # unit tests for text_input_check_xss_batch
+  # Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+  # Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+  # @param value User-facing text input.
+  # @param [Hash] opts the optional parameters
+  # @return [XssProtectionBatchResponse]
+  describe 'text_input_check_xss_batch test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for text_input_protect_xss
   # Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
   # Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.

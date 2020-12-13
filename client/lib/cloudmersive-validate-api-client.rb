@@ -76,6 +76,9 @@ require 'cloudmersive-validate-api-client/models/validate_url_response_syntax_on
 require 'cloudmersive-validate-api-client/models/vat_lookup_request'
 require 'cloudmersive-validate-api-client/models/vat_lookup_response'
 require 'cloudmersive-validate-api-client/models/whois_response'
+require 'cloudmersive-validate-api-client/models/xss_protection_batch_request'
+require 'cloudmersive-validate-api-client/models/xss_protection_batch_response'
+require 'cloudmersive-validate-api-client/models/xss_protection_request_item'
 require 'cloudmersive-validate-api-client/models/xss_protection_result'
 
 # APIs
