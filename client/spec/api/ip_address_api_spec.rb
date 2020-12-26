@@ -80,4 +80,16 @@ describe 'IPAddressApi' do
     end
   end
 
+  # unit tests for i_p_address_reverse_domain_lookup
+  # Perform a reverse domain name (DNS) lookup on an IP address
+  # Gets the domain name, if any, associated with the IP address.
+  # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [IPReverseDNSLookupResponse]
+  describe 'i_p_address_reverse_domain_lookup test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
