@@ -13,62 +13,62 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Geolocation result of performing an IP address geolocation operation.  This product includes GeoLite2 data created by MaxMind, available from www.maxmind.com.
-  class GeolocateResponse
-    # Two-letter country code of IP address
-    attr_accessor :country_code
+  # IP address intelligence result
+  class IPIntelligenceResponse
+    # True if the IP address is a known bot, otherwise false
+    attr_accessor :is_bot
 
-    # Country name of IP address
-    attr_accessor :country_name
+    # True if the IP address is a known Tor exit node, otherwise false
+    attr_accessor :is_tor_node
 
-    # City of IP address
-    attr_accessor :city
+    # True if the IP address is a known threat IP, otherwise false
+    attr_accessor :is_threat
 
-    # State/region code of IP address
-    attr_accessor :region_code
+    # True if the IP address is in the European Union, otherwise false
+    attr_accessor :is_eu
 
-    # State/region of IP address
-    attr_accessor :region_name
+    # Returns the location of the IP address
+    attr_accessor :location
 
-    # Zip or postal code of IP address
-    attr_accessor :zip_code
+    # ISO 4217 currency code for the IP address location
+    attr_accessor :currency_code
 
-    # Timezone of IP address
-    attr_accessor :timezone_standard_name
+    # Name of the currency in English
+    attr_accessor :currency_name
 
-    # Latitude of IP address
-    attr_accessor :latitude
+    # Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania
+    attr_accessor :region_area
 
-    # Longitude of IP address
-    attr_accessor :longitude
+    # Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,
+    attr_accessor :subregion_area
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'country_code' => :'CountryCode',
-        :'country_name' => :'CountryName',
-        :'city' => :'City',
-        :'region_code' => :'RegionCode',
-        :'region_name' => :'RegionName',
-        :'zip_code' => :'ZipCode',
-        :'timezone_standard_name' => :'TimezoneStandardName',
-        :'latitude' => :'Latitude',
-        :'longitude' => :'Longitude'
+        :'is_bot' => :'IsBot',
+        :'is_tor_node' => :'IsTorNode',
+        :'is_threat' => :'IsThreat',
+        :'is_eu' => :'IsEU',
+        :'location' => :'Location',
+        :'currency_code' => :'CurrencyCode',
+        :'currency_name' => :'CurrencyName',
+        :'region_area' => :'RegionArea',
+        :'subregion_area' => :'SubregionArea'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'country_code' => :'String',
-        :'country_name' => :'String',
-        :'city' => :'String',
-        :'region_code' => :'String',
-        :'region_name' => :'String',
-        :'zip_code' => :'String',
-        :'timezone_standard_name' => :'String',
-        :'latitude' => :'Float',
-        :'longitude' => :'Float'
+        :'is_bot' => :'BOOLEAN',
+        :'is_tor_node' => :'BOOLEAN',
+        :'is_threat' => :'BOOLEAN',
+        :'is_eu' => :'BOOLEAN',
+        :'location' => :'GeolocateResponse',
+        :'currency_code' => :'String',
+        :'currency_name' => :'String',
+        :'region_area' => :'String',
+        :'subregion_area' => :'String'
       }
     end
 
@@ -80,40 +80,40 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'CountryCode')
-        self.country_code = attributes[:'CountryCode']
+      if attributes.has_key?(:'IsBot')
+        self.is_bot = attributes[:'IsBot']
       end
 
-      if attributes.has_key?(:'CountryName')
-        self.country_name = attributes[:'CountryName']
+      if attributes.has_key?(:'IsTorNode')
+        self.is_tor_node = attributes[:'IsTorNode']
       end
 
-      if attributes.has_key?(:'City')
-        self.city = attributes[:'City']
+      if attributes.has_key?(:'IsThreat')
+        self.is_threat = attributes[:'IsThreat']
       end
 
-      if attributes.has_key?(:'RegionCode')
-        self.region_code = attributes[:'RegionCode']
+      if attributes.has_key?(:'IsEU')
+        self.is_eu = attributes[:'IsEU']
       end
 
-      if attributes.has_key?(:'RegionName')
-        self.region_name = attributes[:'RegionName']
+      if attributes.has_key?(:'Location')
+        self.location = attributes[:'Location']
       end
 
-      if attributes.has_key?(:'ZipCode')
-        self.zip_code = attributes[:'ZipCode']
+      if attributes.has_key?(:'CurrencyCode')
+        self.currency_code = attributes[:'CurrencyCode']
       end
 
-      if attributes.has_key?(:'TimezoneStandardName')
-        self.timezone_standard_name = attributes[:'TimezoneStandardName']
+      if attributes.has_key?(:'CurrencyName')
+        self.currency_name = attributes[:'CurrencyName']
       end
 
-      if attributes.has_key?(:'Latitude')
-        self.latitude = attributes[:'Latitude']
+      if attributes.has_key?(:'RegionArea')
+        self.region_area = attributes[:'RegionArea']
       end
 
-      if attributes.has_key?(:'Longitude')
-        self.longitude = attributes[:'Longitude']
+      if attributes.has_key?(:'SubregionArea')
+        self.subregion_area = attributes[:'SubregionArea']
       end
     end
 
@@ -135,15 +135,15 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          country_code == o.country_code &&
-          country_name == o.country_name &&
-          city == o.city &&
-          region_code == o.region_code &&
-          region_name == o.region_name &&
-          zip_code == o.zip_code &&
-          timezone_standard_name == o.timezone_standard_name &&
-          latitude == o.latitude &&
-          longitude == o.longitude
+          is_bot == o.is_bot &&
+          is_tor_node == o.is_tor_node &&
+          is_threat == o.is_threat &&
+          is_eu == o.is_eu &&
+          location == o.location &&
+          currency_code == o.currency_code &&
+          currency_name == o.currency_name &&
+          region_area == o.region_area &&
+          subregion_area == o.subregion_area
     end
 
     # @see the `==` method
@@ -155,7 +155,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_code, country_name, city, region_code, region_name, zip_code, timezone_standard_name, latitude, longitude].hash
+      [is_bot, is_tor_node, is_threat, is_eu, location, currency_code, currency_name, region_area, subregion_area].hash
     end
 
     # Builds the object from hash

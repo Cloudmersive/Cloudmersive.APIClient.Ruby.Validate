@@ -13,62 +13,22 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Geolocation result of performing an IP address geolocation operation.  This product includes GeoLite2 data created by MaxMind, available from www.maxmind.com.
-  class GeolocateResponse
-    # Two-letter country code of IP address
-    attr_accessor :country_code
-
-    # Country name of IP address
-    attr_accessor :country_name
-
-    # City of IP address
-    attr_accessor :city
-
-    # State/region code of IP address
-    attr_accessor :region_code
-
-    # State/region of IP address
-    attr_accessor :region_name
-
-    # Zip or postal code of IP address
-    attr_accessor :zip_code
-
-    # Timezone of IP address
-    attr_accessor :timezone_standard_name
-
-    # Latitude of IP address
-    attr_accessor :latitude
-
-    # Longitude of IP address
-    attr_accessor :longitude
+  # Result of performing a Bot check on an IP address
+  class BotCheckResponse
+    # True if the input IP address is a Bot or Robot, false otherwise
+    attr_accessor :is_bot
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'country_code' => :'CountryCode',
-        :'country_name' => :'CountryName',
-        :'city' => :'City',
-        :'region_code' => :'RegionCode',
-        :'region_name' => :'RegionName',
-        :'zip_code' => :'ZipCode',
-        :'timezone_standard_name' => :'TimezoneStandardName',
-        :'latitude' => :'Latitude',
-        :'longitude' => :'Longitude'
+        :'is_bot' => :'IsBot'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'country_code' => :'String',
-        :'country_name' => :'String',
-        :'city' => :'String',
-        :'region_code' => :'String',
-        :'region_name' => :'String',
-        :'zip_code' => :'String',
-        :'timezone_standard_name' => :'String',
-        :'latitude' => :'Float',
-        :'longitude' => :'Float'
+        :'is_bot' => :'BOOLEAN'
       }
     end
 
@@ -80,40 +40,8 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'CountryCode')
-        self.country_code = attributes[:'CountryCode']
-      end
-
-      if attributes.has_key?(:'CountryName')
-        self.country_name = attributes[:'CountryName']
-      end
-
-      if attributes.has_key?(:'City')
-        self.city = attributes[:'City']
-      end
-
-      if attributes.has_key?(:'RegionCode')
-        self.region_code = attributes[:'RegionCode']
-      end
-
-      if attributes.has_key?(:'RegionName')
-        self.region_name = attributes[:'RegionName']
-      end
-
-      if attributes.has_key?(:'ZipCode')
-        self.zip_code = attributes[:'ZipCode']
-      end
-
-      if attributes.has_key?(:'TimezoneStandardName')
-        self.timezone_standard_name = attributes[:'TimezoneStandardName']
-      end
-
-      if attributes.has_key?(:'Latitude')
-        self.latitude = attributes[:'Latitude']
-      end
-
-      if attributes.has_key?(:'Longitude')
-        self.longitude = attributes[:'Longitude']
+      if attributes.has_key?(:'IsBot')
+        self.is_bot = attributes[:'IsBot']
       end
     end
 
@@ -135,15 +63,7 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          country_code == o.country_code &&
-          country_name == o.country_name &&
-          city == o.city &&
-          region_code == o.region_code &&
-          region_name == o.region_name &&
-          zip_code == o.zip_code &&
-          timezone_standard_name == o.timezone_standard_name &&
-          latitude == o.latitude &&
-          longitude == o.longitude
+          is_bot == o.is_bot
     end
 
     # @see the `==` method
@@ -155,7 +75,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [country_code, country_name, city, region_code, region_name, zip_code, timezone_standard_name, latitude, longitude].hash
+      [is_bot].hash
     end
 
     # Builds the object from hash

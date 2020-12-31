@@ -44,6 +44,30 @@ describe 'IPAddressApi' do
     end
   end
 
+  # unit tests for i_p_address_ip_intelligence
+  # Get intelligence on an IP address
+  # Identify key intelligence about an IP address, including if it is a known threat IP, known bot, Tor exit node, as well as the location of the IP address.
+  # @param value IP address to process, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [IPIntelligenceResponse]
+  describe 'i_p_address_ip_intelligence test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for i_p_address_is_bot
+  # Check if IP address is a Bot client
+  # Check if the input IP address is a Bot, robot, or otherwise a non-user entity.  Leverages real-time signals to check against known high-probability bots..
+  # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [BotCheckResponse]
+  describe 'i_p_address_is_bot test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for i_p_address_is_threat
   # Check if IP address is a known threat
   # Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.

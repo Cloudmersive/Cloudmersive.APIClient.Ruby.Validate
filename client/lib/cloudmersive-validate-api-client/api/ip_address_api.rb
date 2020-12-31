@@ -73,6 +73,114 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Get intelligence on an IP address
+    # Identify key intelligence about an IP address, including if it is a known threat IP, known bot, Tor exit node, as well as the location of the IP address.
+    # @param value IP address to process, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [IPIntelligenceResponse]
+    def i_p_address_ip_intelligence(value, opts = {})
+      data, _status_code, _headers = i_p_address_ip_intelligence_with_http_info(value, opts)
+      data
+    end
+
+    # Get intelligence on an IP address
+    # Identify key intelligence about an IP address, including if it is a known threat IP, known bot, Tor exit node, as well as the location of the IP address.
+    # @param value IP address to process, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(IPIntelligenceResponse, Fixnum, Hash)>] IPIntelligenceResponse data, response status code and response headers
+    def i_p_address_ip_intelligence_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IPAddressApi.i_p_address_ip_intelligence ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling IPAddressApi.i_p_address_ip_intelligence"
+      end
+      # resource path
+      local_var_path = '/validate/ip/intelligence'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'IPIntelligenceResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IPAddressApi#i_p_address_ip_intelligence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Check if IP address is a Bot client
+    # Check if the input IP address is a Bot, robot, or otherwise a non-user entity.  Leverages real-time signals to check against known high-probability bots..
+    # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [BotCheckResponse]
+    def i_p_address_is_bot(value, opts = {})
+      data, _status_code, _headers = i_p_address_is_bot_with_http_info(value, opts)
+      data
+    end
+
+    # Check if IP address is a Bot client
+    # Check if the input IP address is a Bot, robot, or otherwise a non-user entity.  Leverages real-time signals to check against known high-probability bots..
+    # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BotCheckResponse, Fixnum, Hash)>] BotCheckResponse data, response status code and response headers
+    def i_p_address_is_bot_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IPAddressApi.i_p_address_is_bot ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling IPAddressApi.i_p_address_is_bot"
+      end
+      # resource path
+      local_var_path = '/validate/ip/is-bot'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'BotCheckResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IPAddressApi#i_p_address_is_bot\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Check if IP address is a known threat
     # Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.
     # @param value IP address to check, e.g. \&quot;55.55.55.55\&quot;.  The input is a string so be sure to enclose it in double-quotes.
