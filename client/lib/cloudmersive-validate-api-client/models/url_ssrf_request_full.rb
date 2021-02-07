@@ -13,32 +13,27 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
-    attr_accessor :valid_url
+  # Request to determine if a URL is an SSRF threat check
+  class UrlSsrfRequestFull
+    # URL to validate
+    attr_accessor :url
 
-    # Well-formed version of the URL
-    attr_accessor :well_formed_url
-
-    # The top-level domain name of the URL, e.g. mydomain.com
-    attr_accessor :top_level_domain_name
+    # Top level domains that you do not want to allow access to, e.g. mydomain.com - will block all subdomains as well
+    attr_accessor :blocked_domains
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_url' => :'ValidURL',
-        :'well_formed_url' => :'WellFormedURL',
-        :'top_level_domain_name' => :'TopLevelDomainName'
+        :'url' => :'URL',
+        :'blocked_domains' => :'BlockedDomains'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_url' => :'BOOLEAN',
-        :'well_formed_url' => :'String',
-        :'top_level_domain_name' => :'String'
+        :'url' => :'String',
+        :'blocked_domains' => :'Array<String>'
       }
     end
 
@@ -50,16 +45,14 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'ValidURL')
-        self.valid_url = attributes[:'ValidURL']
+      if attributes.has_key?(:'URL')
+        self.url = attributes[:'URL']
       end
 
-      if attributes.has_key?(:'WellFormedURL')
-        self.well_formed_url = attributes[:'WellFormedURL']
-      end
-
-      if attributes.has_key?(:'TopLevelDomainName')
-        self.top_level_domain_name = attributes[:'TopLevelDomainName']
+      if attributes.has_key?(:'BlockedDomains')
+        if (value = attributes[:'BlockedDomains']).is_a?(Array)
+          self.blocked_domains = value
+        end
       end
     end
 
@@ -81,9 +74,8 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_url == o.valid_url &&
-          well_formed_url == o.well_formed_url &&
-          top_level_domain_name == o.top_level_domain_name
+          url == o.url &&
+          blocked_domains == o.blocked_domains
     end
 
     # @see the `==` method
@@ -95,7 +87,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url, top_level_domain_name].hash
+      [url, blocked_domains].hash
     end
 
     # Builds the object from hash

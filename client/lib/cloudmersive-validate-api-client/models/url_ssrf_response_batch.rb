@@ -13,32 +13,22 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveValidateApiClient
-  # Result of validating a URL with syntax only
-  class ValidateUrlResponseSyntaxOnly
-    # True if the URL is valid, false otherwise
-    attr_accessor :valid_url
-
-    # Well-formed version of the URL
-    attr_accessor :well_formed_url
-
-    # The top-level domain name of the URL, e.g. mydomain.com
-    attr_accessor :top_level_domain_name
+  # Result of performing SSRF threat checks on multiple URLs
+  class UrlSsrfResponseBatch
+    # Results of the operation, with indexes matched to input values
+    attr_accessor :output_items
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'valid_url' => :'ValidURL',
-        :'well_formed_url' => :'WellFormedURL',
-        :'top_level_domain_name' => :'TopLevelDomainName'
+        :'output_items' => :'OutputItems'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'valid_url' => :'BOOLEAN',
-        :'well_formed_url' => :'String',
-        :'top_level_domain_name' => :'String'
+        :'output_items' => :'Array<UrlSsrfResponseFull>'
       }
     end
 
@@ -50,16 +40,10 @@ module CloudmersiveValidateApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'ValidURL')
-        self.valid_url = attributes[:'ValidURL']
-      end
-
-      if attributes.has_key?(:'WellFormedURL')
-        self.well_formed_url = attributes[:'WellFormedURL']
-      end
-
-      if attributes.has_key?(:'TopLevelDomainName')
-        self.top_level_domain_name = attributes[:'TopLevelDomainName']
+      if attributes.has_key?(:'OutputItems')
+        if (value = attributes[:'OutputItems']).is_a?(Array)
+          self.output_items = value
+        end
       end
     end
 
@@ -81,9 +65,7 @@ module CloudmersiveValidateApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          valid_url == o.valid_url &&
-          well_formed_url == o.well_formed_url &&
-          top_level_domain_name == o.top_level_domain_name
+          output_items == o.output_items
     end
 
     # @see the `==` method
@@ -95,7 +77,7 @@ module CloudmersiveValidateApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [valid_url, well_formed_url, top_level_domain_name].hash
+      [output_items].hash
     end
 
     # Builds the object from hash

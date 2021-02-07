@@ -5,8 +5,11 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domain_check**](DomainApi.md#domain_check) | **POST** /validate/domain/check | Validate a domain name
+[**domain_get_top_level_domain_from_url**](DomainApi.md#domain_get_top_level_domain_from_url) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
 [**domain_post**](DomainApi.md#domain_post) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domain_quality_score**](DomainApi.md#domain_quality_score) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
+[**domain_ssrf_check**](DomainApi.md#domain_ssrf_check) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
+[**domain_ssrf_check_batch**](DomainApi.md#domain_ssrf_check_batch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domain_url_full**](DomainApi.md#domain_url_full) | **POST** /validate/domain/url/full | Validate a URL fully
 [**domain_url_syntax_only**](DomainApi.md#domain_url_syntax_only) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
@@ -53,6 +56,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CheckResponse**](CheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_get_top_level_domain_from_url**
+> ValidateUrlResponseSyntaxOnly domain_get_top_level_domain_from_url(request)
+
+Get top-level domain name from URL
+
+Gets the top-level domain name from a URL, such as mydomain.com.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::ValidateUrlRequestSyntaxOnly.new # ValidateUrlRequestSyntaxOnly | Input URL information
+
+
+begin
+  #Get top-level domain name from URL
+  result = api_instance.domain_get_top_level_domain_from_url(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_get_top_level_domain_from_url: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ValidateUrlRequestSyntaxOnly**](ValidateUrlRequestSyntaxOnly.md)| Input URL information | 
+
+### Return type
+
+[**ValidateUrlResponseSyntaxOnly**](ValidateUrlResponseSyntaxOnly.md)
 
 ### Authorization
 
@@ -161,6 +218,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DomainQualityResponse**](DomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_ssrf_check**
+> UrlSsrfResponseFull domain_ssrf_check(request)
+
+Check a URL for SSRF threats
+
+Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::UrlSsrfRequestFull.new # UrlSsrfRequestFull | Input URL request
+
+
+begin
+  #Check a URL for SSRF threats
+  result = api_instance.domain_ssrf_check(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_ssrf_check: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSsrfRequestFull**](UrlSsrfRequestFull.md)| Input URL request | 
+
+### Return type
+
+[**UrlSsrfResponseFull**](UrlSsrfResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_ssrf_check_batch**
+> UrlSsrfResponseBatch domain_ssrf_check_batch(request)
+
+Check a URL for SSRF threats in batches
+
+Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::UrlSsrfRequestBatch.new # UrlSsrfRequestBatch | Input URL request as a batch of multiple URLs
+
+
+begin
+  #Check a URL for SSRF threats in batches
+  result = api_instance.domain_ssrf_check_batch(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_ssrf_check_batch: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSsrfRequestBatch**](UrlSsrfRequestBatch.md)| Input URL request as a batch of multiple URLs | 
+
+### Return type
+
+[**UrlSsrfResponseBatch**](UrlSsrfResponseBatch.md)
 
 ### Authorization
 

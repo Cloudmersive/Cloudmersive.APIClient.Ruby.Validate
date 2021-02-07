@@ -44,6 +44,18 @@ describe 'DomainApi' do
     end
   end
 
+  # unit tests for domain_get_top_level_domain_from_url
+  # Get top-level domain name from URL
+  # Gets the top-level domain name from a URL, such as mydomain.com.
+  # @param request Input URL information
+  # @param [Hash] opts the optional parameters
+  # @return [ValidateUrlResponseSyntaxOnly]
+  describe 'domain_get_top_level_domain_from_url test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for domain_post
   # Get WHOIS information for a domain
   # Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain&#39;s owners.
@@ -63,6 +75,30 @@ describe 'DomainApi' do
   # @param [Hash] opts the optional parameters
   # @return [DomainQualityResponse]
   describe 'domain_quality_score test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for domain_ssrf_check
+  # Check a URL for SSRF threats
+  # Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+  # @param request Input URL request
+  # @param [Hash] opts the optional parameters
+  # @return [UrlSsrfResponseFull]
+  describe 'domain_ssrf_check test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for domain_ssrf_check_batch
+  # Check a URL for SSRF threats in batches
+  # Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+  # @param request Input URL request as a batch of multiple URLs
+  # @param [Hash] opts the optional parameters
+  # @return [UrlSsrfResponseBatch]
+  describe 'domain_ssrf_check_batch test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
