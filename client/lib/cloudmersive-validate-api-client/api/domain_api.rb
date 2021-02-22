@@ -127,6 +127,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Check a URL for Phishing threats
+    # Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [PhishingCheckResponse]
+    def domain_phishing_check(request, opts = {})
+      data, _status_code, _headers = domain_phishing_check_with_http_info(request, opts)
+      data
+    end
+
+    # Check a URL for Phishing threats
+    # Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PhishingCheckResponse, Fixnum, Hash)>] PhishingCheckResponse data, response status code and response headers
+    def domain_phishing_check_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DomainApi.domain_phishing_check ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling DomainApi.domain_phishing_check"
+      end
+      # resource path
+      local_var_path = '/validate/domain/url/phishing-threat-check'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PhishingCheckResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_phishing_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get WHOIS information for a domain
     # Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain's owners.
     # @param domain Domain name to check, for example \&quot;cloudmersive.com\&quot;.   The input is a string so be sure to enclose it in double-quotes.
@@ -232,6 +286,60 @@ module CloudmersiveValidateApiClient
         :return_type => 'DomainQualityResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DomainApi#domain_quality_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Check a URL for safety threats
+    # Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [UrlSafetyCheckResponseFull]
+    def domain_safety_check(request, opts = {})
+      data, _status_code, _headers = domain_safety_check_with_http_info(request, opts)
+      data
+    end
+
+    # Check a URL for safety threats
+    # Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UrlSafetyCheckResponseFull, Fixnum, Hash)>] UrlSafetyCheckResponseFull data, response status code and response headers
+    def domain_safety_check_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DomainApi.domain_safety_check ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling DomainApi.domain_safety_check"
+      end
+      # resource path
+      local_var_path = '/validate/domain/url/safety-threat-check'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UrlSafetyCheckResponseFull')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_safety_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

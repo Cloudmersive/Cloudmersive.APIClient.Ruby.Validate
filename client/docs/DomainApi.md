@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domain_check**](DomainApi.md#domain_check) | **POST** /validate/domain/check | Validate a domain name
 [**domain_get_top_level_domain_from_url**](DomainApi.md#domain_get_top_level_domain_from_url) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+[**domain_phishing_check**](DomainApi.md#domain_phishing_check) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domain_post**](DomainApi.md#domain_post) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domain_quality_score**](DomainApi.md#domain_quality_score) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
+[**domain_safety_check**](DomainApi.md#domain_safety_check) | **POST** /validate/domain/url/safety-threat-check | Check a URL for safety threats
 [**domain_ssrf_check**](DomainApi.md#domain_ssrf_check) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domain_ssrf_check_batch**](DomainApi.md#domain_ssrf_check_batch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domain_url_full**](DomainApi.md#domain_url_full) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -122,6 +124,60 @@ Name | Type | Description  | Notes
 
 
 
+# **domain_phishing_check**
+> PhishingCheckResponse domain_phishing_check(request)
+
+Check a URL for Phishing threats
+
+Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::PhishingCheckRequest.new # PhishingCheckRequest | Input URL request
+
+
+begin
+  #Check a URL for Phishing threats
+  result = api_instance.domain_phishing_check(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_phishing_check: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**PhishingCheckRequest**](PhishingCheckRequest.md)| Input URL request | 
+
+### Return type
+
+[**PhishingCheckResponse**](PhishingCheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **domain_post**
 > WhoisResponse domain_post(domain)
 
@@ -218,6 +274,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DomainQualityResponse**](DomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_safety_check**
+> UrlSafetyCheckResponseFull domain_safety_check(request)
+
+Check a URL for safety threats
+
+Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::UrlSafetyCheckRequestFull.new # UrlSafetyCheckRequestFull | Input URL request
+
+
+begin
+  #Check a URL for safety threats
+  result = api_instance.domain_safety_check(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_safety_check: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlSafetyCheckRequestFull**](UrlSafetyCheckRequestFull.md)| Input URL request | 
+
+### Return type
+
+[**UrlSafetyCheckResponseFull**](UrlSafetyCheckResponseFull.md)
 
 ### Authorization
 
