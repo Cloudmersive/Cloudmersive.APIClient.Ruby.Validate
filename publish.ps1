@@ -1,1 +1,1 @@
-& gem push .\client\cloudmersive-validate-api-client-2.1.8.gem
+& gem push .\client\cloudmersive-validate-api-client-2.1.9.gem
