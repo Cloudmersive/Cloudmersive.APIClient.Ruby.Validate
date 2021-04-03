@@ -32,6 +32,31 @@ describe 'TextInputApi' do
     end
   end
 
+  # unit tests for text_input_check_sql_injection
+  # Check text input for SQL Injection (SQLI) attacks
+  # Detects SQL Injection (SQLI) attacks from text input.
+  # @param value User-facing text input.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :detection_level Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended).
+  # @return [SqlInjectionDetectionResult]
+  describe 'text_input_check_sql_injection test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for text_input_check_sql_injection_batch
+  # Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+  # Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+  # @param value User-facing text input.
+  # @param [Hash] opts the optional parameters
+  # @return [SqlInjectionCheckBatchResponse]
+  describe 'text_input_check_sql_injection_batch test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for text_input_check_xss
   # Check text input for Cross-Site-Scripting (XSS) attacks
   # Detects XSS (Cross-Site-Scripting) attacks from text input.
@@ -46,7 +71,7 @@ describe 'TextInputApi' do
 
   # unit tests for text_input_check_xss_batch
   # Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
-  # Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+  # Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
   # @param value User-facing text input.
   # @param [Hash] opts the optional parameters
   # @return [XssProtectionBatchResponse]

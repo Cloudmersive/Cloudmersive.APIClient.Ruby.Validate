@@ -19,6 +19,117 @@ module CloudmersiveValidateApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Check text input for SQL Injection (SQLI) attacks
+    # Detects SQL Injection (SQLI) attacks from text input.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :detection_level Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended).
+    # @return [SqlInjectionDetectionResult]
+    def text_input_check_sql_injection(value, opts = {})
+      data, _status_code, _headers = text_input_check_sql_injection_with_http_info(value, opts)
+      data
+    end
+
+    # Check text input for SQL Injection (SQLI) attacks
+    # Detects SQL Injection (SQLI) attacks from text input.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :detection_level Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended).
+    # @return [Array<(SqlInjectionDetectionResult, Fixnum, Hash)>] SqlInjectionDetectionResult data, response status code and response headers
+    def text_input_check_sql_injection_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TextInputApi.text_input_check_sql_injection ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling TextInputApi.text_input_check_sql_injection"
+      end
+      # resource path
+      local_var_path = '/validate/text-input/check/sql-injection'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+      header_params[:'detectionLevel'] = opts[:'detection_level'] if !opts[:'detection_level'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SqlInjectionDetectionResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TextInputApi#text_input_check_sql_injection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+    # Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @return [SqlInjectionCheckBatchResponse]
+    def text_input_check_sql_injection_batch(value, opts = {})
+      data, _status_code, _headers = text_input_check_sql_injection_batch_with_http_info(value, opts)
+      data
+    end
+
+    # Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+    # Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SqlInjectionCheckBatchResponse, Fixnum, Hash)>] SqlInjectionCheckBatchResponse data, response status code and response headers
+    def text_input_check_sql_injection_batch_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TextInputApi.text_input_check_sql_injection_batch ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling TextInputApi.text_input_check_sql_injection_batch"
+      end
+      # resource path
+      local_var_path = '/validate/text-input/check/sql-injection/batch'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SqlInjectionCheckBatchResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TextInputApi#text_input_check_sql_injection_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Check text input for Cross-Site-Scripting (XSS) attacks
     # Detects XSS (Cross-Site-Scripting) attacks from text input.
     # @param value User-facing text input.
@@ -74,7 +185,7 @@ module CloudmersiveValidateApiClient
       return data, status_code, headers
     end
     # Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
-    # Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+    # Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
     # @param value User-facing text input.
     # @param [Hash] opts the optional parameters
     # @return [XssProtectionBatchResponse]
@@ -84,7 +195,7 @@ module CloudmersiveValidateApiClient
     end
 
     # Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
-    # Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+    # Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
     # @param value User-facing text input.
     # @param [Hash] opts the optional parameters
     # @return [Array<(XssProtectionBatchResponse, Fixnum, Hash)>] XssProtectionBatchResponse data, response status code and response headers
