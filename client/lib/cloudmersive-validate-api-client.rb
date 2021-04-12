@@ -95,6 +95,10 @@ require 'cloudmersive-validate-api-client/models/xss_protection_batch_request'
 require 'cloudmersive-validate-api-client/models/xss_protection_batch_response'
 require 'cloudmersive-validate-api-client/models/xss_protection_request_item'
 require 'cloudmersive-validate-api-client/models/xss_protection_result'
+require 'cloudmersive-validate-api-client/models/xxe_detection_batch_request'
+require 'cloudmersive-validate-api-client/models/xxe_detection_batch_response'
+require 'cloudmersive-validate-api-client/models/xxe_detection_request_item'
+require 'cloudmersive-validate-api-client/models/xxe_detection_result'
 
 # APIs
 require 'cloudmersive-validate-api-client/api/address_api'

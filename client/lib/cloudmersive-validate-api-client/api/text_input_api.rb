@@ -238,6 +238,123 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Protect text input from XML External Entity (XXE) attacks
+    # Detects XXE (XML External Entity) attacks from text input.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :allow_internet_urls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false.
+    # @option opts [String] :known_safe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe.
+    # @option opts [String] :known_unsafe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe.
+    # @return [XxeDetectionResult]
+    def text_input_check_xxe(value, opts = {})
+      data, _status_code, _headers = text_input_check_xxe_with_http_info(value, opts)
+      data
+    end
+
+    # Protect text input from XML External Entity (XXE) attacks
+    # Detects XXE (XML External Entity) attacks from text input.
+    # @param value User-facing text input.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :allow_internet_urls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false.
+    # @option opts [String] :known_safe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe.
+    # @option opts [String] :known_unsafe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe.
+    # @return [Array<(XxeDetectionResult, Fixnum, Hash)>] XxeDetectionResult data, response status code and response headers
+    def text_input_check_xxe_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TextInputApi.text_input_check_xxe ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling TextInputApi.text_input_check_xxe"
+      end
+      # resource path
+      local_var_path = '/validate/text-input/check/xxe'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+      header_params[:'allowInternetUrls'] = opts[:'allow_internet_urls'] if !opts[:'allow_internet_urls'].nil?
+      header_params[:'knownSafeUrls'] = opts[:'known_safe_urls'] if !opts[:'known_safe_urls'].nil?
+      header_params[:'knownUnsafeUrls'] = opts[:'known_unsafe_urls'] if !opts[:'known_unsafe_urls'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XxeDetectionResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TextInputApi#text_input_check_xxe\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Protect text input from XML External Entity (XXE) attacks
+    # Detects XXE (XML External Entity) attacks from text input.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [XxeDetectionBatchResponse]
+    def text_input_check_xxe_batch(request, opts = {})
+      data, _status_code, _headers = text_input_check_xxe_batch_with_http_info(request, opts)
+      data
+    end
+
+    # Protect text input from XML External Entity (XXE) attacks
+    # Detects XXE (XML External Entity) attacks from text input.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XxeDetectionBatchResponse, Fixnum, Hash)>] XxeDetectionBatchResponse data, response status code and response headers
+    def text_input_check_xxe_batch_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TextInputApi.text_input_check_xxe_batch ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling TextInputApi.text_input_check_xxe_batch"
+      end
+      # resource path
+      local_var_path = '/validate/text-input/check/xxe/batch'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XxeDetectionBatchResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TextInputApi#text_input_check_xxe_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
     # Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
     # @param value User-facing text input.

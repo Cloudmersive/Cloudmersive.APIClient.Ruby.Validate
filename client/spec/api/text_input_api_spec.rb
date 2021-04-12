@@ -81,6 +81,33 @@ describe 'TextInputApi' do
     end
   end
 
+  # unit tests for text_input_check_xxe
+  # Protect text input from XML External Entity (XXE) attacks
+  # Detects XXE (XML External Entity) attacks from text input.
+  # @param value User-facing text input.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :allow_internet_urls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false.
+  # @option opts [String] :known_safe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe.
+  # @option opts [String] :known_unsafe_urls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe.
+  # @return [XxeDetectionResult]
+  describe 'text_input_check_xxe test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for text_input_check_xxe_batch
+  # Protect text input from XML External Entity (XXE) attacks
+  # Detects XXE (XML External Entity) attacks from text input.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [XxeDetectionBatchResponse]
+  describe 'text_input_check_xxe_batch test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for text_input_protect_xss
   # Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
   # Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
