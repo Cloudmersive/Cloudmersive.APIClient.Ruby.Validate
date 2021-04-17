@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domain_check**](DomainApi.md#domain_check) | **POST** /validate/domain/check | Validate a domain name
 [**domain_get_top_level_domain_from_url**](DomainApi.md#domain_get_top_level_domain_from_url) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+[**domain_is_admin_path**](DomainApi.md#domain_is_admin_path) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
 [**domain_phishing_check**](DomainApi.md#domain_phishing_check) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domain_post**](DomainApi.md#domain_post) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domain_quality_score**](DomainApi.md#domain_quality_score) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
@@ -112,6 +113,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateUrlResponseSyntaxOnly**](ValidateUrlResponseSyntaxOnly.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_is_admin_path**
+> IsAdminPathResponse domain_is_admin_path(value)
+
+Check if path is a high-risk server administration path
+
+Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+value = 'value_example' # String | URL or relative path to check, e.g. \"/admin/login\".  The input is a string so be sure to enclose it in double-quotes.
+
+
+begin
+  #Check if path is a high-risk server administration path
+  result = api_instance.domain_is_admin_path(value)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_is_admin_path: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes. | 
+
+### Return type
+
+[**IsAdminPathResponse**](IsAdminPathResponse.md)
 
 ### Authorization
 

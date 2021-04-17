@@ -127,6 +127,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Check if path is a high-risk server administration path
+    # Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+    # @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [IsAdminPathResponse]
+    def domain_is_admin_path(value, opts = {})
+      data, _status_code, _headers = domain_is_admin_path_with_http_info(value, opts)
+      data
+    end
+
+    # Check if path is a high-risk server administration path
+    # Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+    # @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(IsAdminPathResponse, Fixnum, Hash)>] IsAdminPathResponse data, response status code and response headers
+    def domain_is_admin_path_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DomainApi.domain_is_admin_path ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling DomainApi.domain_is_admin_path"
+      end
+      # resource path
+      local_var_path = '/validate/domain/url/is-admin-path'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'IsAdminPathResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_is_admin_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Check a URL for Phishing threats
     # Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
     # @param request Input URL request

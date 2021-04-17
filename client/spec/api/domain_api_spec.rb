@@ -56,6 +56,18 @@ describe 'DomainApi' do
     end
   end
 
+  # unit tests for domain_is_admin_path
+  # Check if path is a high-risk server administration path
+  # Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+  # @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes.
+  # @param [Hash] opts the optional parameters
+  # @return [IsAdminPathResponse]
+  describe 'domain_is_admin_path test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for domain_phishing_check
   # Check a URL for Phishing threats
   # Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
