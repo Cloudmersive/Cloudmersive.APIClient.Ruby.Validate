@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domain_check**](DomainApi.md#domain_check) | **POST** /validate/domain/check | Validate a domain name
 [**domain_get_top_level_domain_from_url**](DomainApi.md#domain_get_top_level_domain_from_url) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
-[**domain_is_admin_path**](DomainApi.md#domain_is_admin_path) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
+[**domain_is_admin_path**](DomainApi.md#domain_is_admin_path) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk or vulnerable server administration path
 [**domain_phishing_check**](DomainApi.md#domain_phishing_check) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domain_post**](DomainApi.md#domain_post) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domain_quality_score**](DomainApi.md#domain_quality_score) | **POST** /validate/domain/quality-score | Validate a domain name&#39;s quality score
@@ -128,9 +128,9 @@ Name | Type | Description  | Notes
 # **domain_is_admin_path**
 > IsAdminPathResponse domain_is_admin_path(value)
 
-Check if path is a high-risk server administration path
+Check if path is a high-risk or vulnerable server administration path
 
-Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
 
 ### Example
 ```ruby
@@ -150,7 +150,7 @@ value = 'value_example' # String | URL or relative path to check, e.g. \"/admin/
 
 
 begin
-  #Check if path is a high-risk server administration path
+  #Check if path is a high-risk or vulnerable server administration path
   result = api_instance.domain_is_admin_path(value)
   p result
 rescue CloudmersiveValidateApiClient::ApiError => e

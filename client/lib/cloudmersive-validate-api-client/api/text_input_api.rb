@@ -19,6 +19,60 @@ module CloudmersiveValidateApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Protect html input from Server-side Request Forgery (SSRF) attacks
+    # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+    # @param value User-facing HTML input.
+    # @param [Hash] opts the optional parameters
+    # @return [HtmlSsrfDetectionResult]
+    def text_input_check_html_ssrf(value, opts = {})
+      data, _status_code, _headers = text_input_check_html_ssrf_with_http_info(value, opts)
+      data
+    end
+
+    # Protect html input from Server-side Request Forgery (SSRF) attacks
+    # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+    # @param value User-facing HTML input.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HtmlSsrfDetectionResult, Fixnum, Hash)>] HtmlSsrfDetectionResult data, response status code and response headers
+    def text_input_check_html_ssrf_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TextInputApi.text_input_check_html_ssrf ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling TextInputApi.text_input_check_html_ssrf"
+      end
+      # resource path
+      local_var_path = '/validate/text-input/html/check/ssrf'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlSsrfDetectionResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TextInputApi#text_input_check_html_ssrf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Check text input for SQL Injection (SQLI) attacks
     # Detects SQL Injection (SQLI) attacks from text input.
     # @param value User-facing text input.

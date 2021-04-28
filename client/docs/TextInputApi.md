@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**text_input_check_html_ssrf**](TextInputApi.md#text_input_check_html_ssrf) | **POST** /validate/text-input/html/check/ssrf | Protect html input from Server-side Request Forgery (SSRF) attacks
 [**text_input_check_sql_injection**](TextInputApi.md#text_input_check_sql_injection) | **POST** /validate/text-input/check/sql-injection | Check text input for SQL Injection (SQLI) attacks
 [**text_input_check_sql_injection_batch**](TextInputApi.md#text_input_check_sql_injection_batch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 [**text_input_check_xss**](TextInputApi.md#text_input_check_xss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
@@ -11,6 +12,60 @@ Method | HTTP request | Description
 [**text_input_check_xxe**](TextInputApi.md#text_input_check_xxe) | **POST** /validate/text-input/check/xxe | Protect text input from XML External Entity (XXE) attacks
 [**text_input_check_xxe_batch**](TextInputApi.md#text_input_check_xxe_batch) | **POST** /validate/text-input/check/xxe/batch | Protect text input from XML External Entity (XXE) attacks
 [**text_input_protect_xss**](TextInputApi.md#text_input_protect_xss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
+
+
+# **text_input_check_html_ssrf**
+> HtmlSsrfDetectionResult text_input_check_html_ssrf(value)
+
+Protect html input from Server-side Request Forgery (SSRF) attacks
+
+Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::TextInputApi.new
+
+value = 'value_example' # String | User-facing HTML input.
+
+
+begin
+  #Protect html input from Server-side Request Forgery (SSRF) attacks
+  result = api_instance.text_input_check_html_ssrf(value)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling TextInputApi->text_input_check_html_ssrf: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| User-facing HTML input. | 
+
+### Return type
+
+[**HtmlSsrfDetectionResult**](HtmlSsrfDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 
 
 # **text_input_check_sql_injection**

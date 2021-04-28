@@ -57,8 +57,8 @@ describe 'DomainApi' do
   end
 
   # unit tests for domain_is_admin_path
-  # Check if path is a high-risk server administration path
-  # Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+  # Check if path is a high-risk or vulnerable server administration path
+  # Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
   # @param value URL or relative path to check, e.g. \&quot;/admin/login\&quot;.  The input is a string so be sure to enclose it in double-quotes.
   # @param [Hash] opts the optional parameters
   # @return [IsAdminPathResponse]

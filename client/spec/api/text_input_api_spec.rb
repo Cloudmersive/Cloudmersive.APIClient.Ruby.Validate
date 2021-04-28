@@ -32,6 +32,18 @@ describe 'TextInputApi' do
     end
   end
 
+  # unit tests for text_input_check_html_ssrf
+  # Protect html input from Server-side Request Forgery (SSRF) attacks
+  # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+  # @param value User-facing HTML input.
+  # @param [Hash] opts the optional parameters
+  # @return [HtmlSsrfDetectionResult]
+  describe 'text_input_check_html_ssrf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for text_input_check_sql_injection
   # Check text input for SQL Injection (SQLI) attacks
   # Detects SQL Injection (SQLI) attacks from text input.
