@@ -66,6 +66,8 @@ require 'cloudmersive-validate-api-client/models/sql_injection_check_request_ite
 require 'cloudmersive-validate-api-client/models/sql_injection_detection_result'
 require 'cloudmersive-validate-api-client/models/timezone'
 require 'cloudmersive-validate-api-client/models/tor_node_response'
+require 'cloudmersive-validate-api-client/models/url_html_ssrf_request_full'
+require 'cloudmersive-validate-api-client/models/url_html_ssrf_response_full'
 require 'cloudmersive-validate-api-client/models/url_safety_check_request_full'
 require 'cloudmersive-validate-api-client/models/url_safety_check_response_full'
 require 'cloudmersive-validate-api-client/models/url_ssrf_request_batch'

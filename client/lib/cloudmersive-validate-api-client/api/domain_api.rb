@@ -559,6 +559,60 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Check a URL for HTML embedded SSRF threats
+    # Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [UrlHtmlSsrfResponseFull]
+    def domain_url_html_ssrf_check(request, opts = {})
+      data, _status_code, _headers = domain_url_html_ssrf_check_with_http_info(request, opts)
+      data
+    end
+
+    # Check a URL for HTML embedded SSRF threats
+    # Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+    # @param request Input URL request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UrlHtmlSsrfResponseFull, Fixnum, Hash)>] UrlHtmlSsrfResponseFull data, response status code and response headers
+    def domain_url_html_ssrf_check_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DomainApi.domain_url_html_ssrf_check ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling DomainApi.domain_url_html_ssrf_check"
+      end
+      # resource path
+      local_var_path = '/validate/domain/url/ssrf-threat-check/html-embedded'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UrlHtmlSsrfResponseFull')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DomainApi#domain_url_html_ssrf_check\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate a URL syntactically
     # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
     # @param request Input URL information

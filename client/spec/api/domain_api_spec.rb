@@ -152,6 +152,18 @@ describe 'DomainApi' do
     end
   end
 
+  # unit tests for domain_url_html_ssrf_check
+  # Check a URL for HTML embedded SSRF threats
+  # Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+  # @param request Input URL request
+  # @param [Hash] opts the optional parameters
+  # @return [UrlHtmlSsrfResponseFull]
+  describe 'domain_url_html_ssrf_check test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for domain_url_syntax_only
   # Validate a URL syntactically
   # Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.

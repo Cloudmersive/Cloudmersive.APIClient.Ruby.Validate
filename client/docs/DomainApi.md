@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**domain_ssrf_check**](DomainApi.md#domain_ssrf_check) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domain_ssrf_check_batch**](DomainApi.md#domain_ssrf_check_batch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domain_url_full**](DomainApi.md#domain_url_full) | **POST** /validate/domain/url/full | Validate a URL fully
+[**domain_url_html_ssrf_check**](DomainApi.md#domain_url_html_ssrf_check) | **POST** /validate/domain/url/ssrf-threat-check/html-embedded | Check a URL for HTML embedded SSRF threats
 [**domain_url_syntax_only**](DomainApi.md#domain_url_syntax_only) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
 
@@ -545,6 +546,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ValidateUrlResponseFull**](ValidateUrlResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **domain_url_html_ssrf_check**
+> UrlHtmlSsrfResponseFull domain_url_html_ssrf_check(request)
+
+Check a URL for HTML embedded SSRF threats
+
+Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-validate-api-client'
+# setup authorization
+CloudmersiveValidateApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveValidateApiClient::DomainApi.new
+
+request = CloudmersiveValidateApiClient::UrlHtmlSsrfRequestFull.new # UrlHtmlSsrfRequestFull | Input URL request
+
+
+begin
+  #Check a URL for HTML embedded SSRF threats
+  result = api_instance.domain_url_html_ssrf_check(request)
+  p result
+rescue CloudmersiveValidateApiClient::ApiError => e
+  puts "Exception when calling DomainApi->domain_url_html_ssrf_check: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**UrlHtmlSsrfRequestFull**](UrlHtmlSsrfRequestFull.md)| Input URL request | 
+
+### Return type
+
+[**UrlHtmlSsrfResponseFull**](UrlHtmlSsrfResponseFull.md)
 
 ### Authorization
 
