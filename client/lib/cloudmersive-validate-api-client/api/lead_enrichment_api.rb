@@ -71,5 +71,57 @@ module CloudmersiveValidateApiClient
       end
       return data, status_code, headers
     end
+    # Get company information from email address
+    # @param request Input email address lead
+    # @param [Hash] opts the optional parameters
+    # @return [LeadEnrichmentResponse]
+    def lead_enrichment_get_company_information(request, opts = {})
+      data, _status_code, _headers = lead_enrichment_get_company_information_with_http_info(request, opts)
+      data
+    end
+
+    # Get company information from email address
+    # @param request Input email address lead
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(LeadEnrichmentResponse, Fixnum, Hash)>] LeadEnrichmentResponse data, response status code and response headers
+    def lead_enrichment_get_company_information_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LeadEnrichmentApi.lead_enrichment_get_company_information ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling LeadEnrichmentApi.lead_enrichment_get_company_information"
+      end
+      # resource path
+      local_var_path = '/validate/lead-enrichment/lead/email/company-information'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'LeadEnrichmentResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LeadEnrichmentApi#lead_enrichment_get_company_information\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

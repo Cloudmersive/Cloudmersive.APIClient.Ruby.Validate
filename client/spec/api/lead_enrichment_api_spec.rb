@@ -43,4 +43,15 @@ describe 'LeadEnrichmentApi' do
     end
   end
 
+  # unit tests for lead_enrichment_get_company_information
+  # Get company information from email address
+  # @param request Input email address lead
+  # @param [Hash] opts the optional parameters
+  # @return [LeadEnrichmentResponse]
+  describe 'lead_enrichment_get_company_information test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
