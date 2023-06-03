@@ -23,6 +23,7 @@ module CloudmersiveValidateApiClient
     # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
     # @param value User-facing HTML input.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :allow_cid_scheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false.
     # @return [HtmlSsrfDetectionResult]
     def text_input_check_html_ssrf(value, opts = {})
       data, _status_code, _headers = text_input_check_html_ssrf_with_http_info(value, opts)
@@ -33,6 +34,7 @@ module CloudmersiveValidateApiClient
     # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
     # @param value User-facing HTML input.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :allow_cid_scheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false.
     # @return [Array<(HtmlSsrfDetectionResult, Fixnum, Hash)>] HtmlSsrfDetectionResult data, response status code and response headers
     def text_input_check_html_ssrf_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -54,6 +56,7 @@ module CloudmersiveValidateApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json'])
+      header_params[:'allowCidScheme'] = opts[:'allow_cid_scheme'] if !opts[:'allow_cid_scheme'].nil?
 
       # form parameters
       form_params = {}

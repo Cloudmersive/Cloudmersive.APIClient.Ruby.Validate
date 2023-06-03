@@ -37,6 +37,7 @@ describe 'TextInputApi' do
   # Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
   # @param value User-facing HTML input.
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :allow_cid_scheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false.
   # @return [HtmlSsrfDetectionResult]
   describe 'text_input_check_html_ssrf test' do
     it 'should work' do

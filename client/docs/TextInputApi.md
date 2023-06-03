@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **text_input_check_html_ssrf**
-> HtmlSsrfDetectionResult text_input_check_html_ssrf(value)
+> HtmlSsrfDetectionResult text_input_check_html_ssrf(value, opts)
 
 Protect html input from Server-side Request Forgery (SSRF) attacks
 
@@ -37,10 +37,13 @@ api_instance = CloudmersiveValidateApiClient::TextInputApi.new
 
 value = 'value_example' # String | User-facing HTML input.
 
+opts = { 
+  allow_cid_scheme: true # BOOLEAN | Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false.
+}
 
 begin
   #Protect html input from Server-side Request Forgery (SSRF) attacks
-  result = api_instance.text_input_check_html_ssrf(value)
+  result = api_instance.text_input_check_html_ssrf(value, opts)
   p result
 rescue CloudmersiveValidateApiClient::ApiError => e
   puts "Exception when calling TextInputApi->text_input_check_html_ssrf: #{e}"
@@ -52,6 +55,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **value** | **String**| User-facing HTML input. | 
+ **allow_cid_scheme** | **BOOLEAN**| Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. | [optional] 
 
 ### Return type
 
